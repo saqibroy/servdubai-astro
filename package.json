@@ -6,9 +6,13 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
     "@hookform/resolvers": "^5.2.1",
@@ -31,9 +35,15 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/user-event": "^14.6.1",
     "@types/nodemailer": "^7.0.1",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.23",
-    "typescript": "^5.4.2"
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^23.2.0",
+    "typescript": "^5.9.2",
+    "vitest": "^1.6.1"
   }
 }

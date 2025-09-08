@@ -11,7 +11,7 @@ Disallow: /node_modules/
 Disallow: /.env*
 Disallow: /dist/
 
-# Allow important pages
+# Allow important construction finishing pages
 Allow: /
 Allow: /services
 Allow: /packages
@@ -22,7 +22,30 @@ Allow: /success
 Allow: /privacy
 Allow: /terms
 
-# Crawl-delay (optional, in seconds)
+# Allow construction service pages
+Allow: /services/kitchen-finishing
+Allow: /services/bathroom-finishing
+Allow: /services/flooring-tiling
+Allow: /services/woodwork-carpentry
+Allow: /services/painting-finishing
+Allow: /services/ac-installation
+
+# Allow B2B construction package pages
+Allow: /packages/new-building-package
+Allow: /packages/kitchen-bathroom-combo
+Allow: /packages/flooring-specialist
+Allow: /packages/custom-project-quotes
+
+# Allow construction project booking pages
+Allow: /book?project=kitchen
+Allow: /book?project=bathroom
+Allow: /book?project=flooring
+Allow: /book?project=woodwork
+Allow: /book?project=painting
+Allow: /book?project=ac
+Allow: /book?project=complete
+
+# Crawl-delay for construction industry content
 Crawl-delay: 1
 
 # Block common spam bots
@@ -34,3 +57,15 @@ Disallow: /
 
 User-agent: SemrushBot
 Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Special instructions for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Construction industry specific meta
+# This site focuses on construction finishing services in Dubai
+# Target keywords: construction finishing Dubai, kitchen installation, bathroom finishing, flooring installation

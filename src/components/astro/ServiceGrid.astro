@@ -1,4 +1,8 @@
 ---
+import { siteConfig, formatPrice, getProjectWhatsAppLink } from '../../config/site.ts';
+
+// Get construction finishing services from site config
+const constructionServices = Object.values(siteConfig.services.constructionFinishing);
 ---
 
 <!-- Service Grid Section -->
@@ -8,235 +12,179 @@
     <div class="text-center mb-16">
       <div class="inline-flex items-center px-4 py-2 bg-primary-100 rounded-full text-primary-700 font-medium mb-4">
         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
         </svg>
-        Professional Services
+        Construction Finishing Services
       </div>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Complete Apartment
-        <span class="gradient-text">Maintenance Solutions</span>
+        Professional Construction
+        <span class="gradient-text">Finishing Specialists</span>
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Our expert team handles everything except electrical work. 
-        From plumbing to painting, we're your one-stop solution for apartment maintenance in Dubai.
+        We complete what builders start - from kitchen installations to bathroom finishing, 
+        we're Dubai's trusted construction finishing specialists for new buildings.
       </p>
     </div>
 
     <!-- Service Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-      
-      <!-- Plumbing Services -->
-      <div class="bg-white rounded-3xl p-8 card-shadow border border-gray-100 hover:border-primary-300 transition-all duration-300 transform hover:-translate-y-2 group flex flex-col h-full">
-        <div class="mb-6">
-          <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Plumbing Services</h3>
-          <div class="text-blue-600 font-bold text-lg mb-2">Starting AED 150</div>
-          <p class="text-gray-600 text-sm mb-4">Professional water system solutions</p>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {constructionServices.map((service, index) => {
+        // Define color schemes for each service with safe class names
+        const colorSchemes = [
+          { 
+            borderHover: 'hover:border-blue-500',
+            iconBg: 'from-blue-500 to-blue-600', 
+            priceColor: 'text-blue-600',
+            checkColor: 'text-blue-500',
+            buttonBg: 'bg-blue-600',
+            buttonHover: 'hover:bg-blue-700',
+            imageBg: 'from-blue-100 to-blue-200'
+          }, // Kitchen
+          { 
+            borderHover: 'hover:border-emerald-500',
+            iconBg: 'from-emerald-500 to-emerald-600', 
+            priceColor: 'text-emerald-600',
+            checkColor: 'text-emerald-500',
+            buttonBg: 'bg-emerald-600',
+            buttonHover: 'hover:bg-emerald-700',
+            imageBg: 'from-emerald-100 to-emerald-200'
+          }, // Bathroom
+          { 
+            borderHover: 'hover:border-amber-500',
+            iconBg: 'from-amber-500 to-amber-600', 
+            priceColor: 'text-amber-600',
+            checkColor: 'text-amber-500',
+            buttonBg: 'bg-amber-600',
+            buttonHover: 'hover:bg-amber-700',
+            imageBg: 'from-amber-100 to-amber-200'
+          }, // Flooring
+          { 
+            borderHover: 'hover:border-purple-500',
+            iconBg: 'from-purple-500 to-purple-600', 
+            priceColor: 'text-purple-600',
+            checkColor: 'text-purple-500',
+            buttonBg: 'bg-purple-600',
+            buttonHover: 'hover:bg-purple-700',
+            imageBg: 'from-purple-100 to-purple-200'
+          }, // Woodwork
+          { 
+            borderHover: 'hover:border-rose-500',
+            iconBg: 'from-rose-500 to-rose-600', 
+            priceColor: 'text-rose-600',
+            checkColor: 'text-rose-500',
+            buttonBg: 'bg-rose-600',
+            buttonHover: 'hover:bg-rose-700',
+            imageBg: 'from-rose-100 to-rose-200'
+          }, // Painting
+          { 
+            borderHover: 'hover:border-cyan-500',
+            iconBg: 'from-cyan-500 to-cyan-600', 
+            priceColor: 'text-cyan-600',
+            checkColor: 'text-cyan-500',
+            buttonBg: 'bg-cyan-600',
+            buttonHover: 'hover:bg-cyan-700',
+            imageBg: 'from-cyan-100 to-cyan-200'
+          } // AC
+        ];
+        
+        const colors = colorSchemes[index % colorSchemes.length];
+        
+        // Define icons for each service
+        const serviceIcons = [
+          // Kitchen icon
+          "M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20z",
+          // Bathroom icon  
+          "M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-2V2.5c0-.28-.22-.5-.5-.5s-.5.22-.5.5V4H8V2.5c0-.28-.22-.5-.5-.5S7 2.22 7 2.5V4H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z",
+          // Flooring icon
+          "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z",
+          // Woodwork icon
+          "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z",
+          // Painting icon
+          "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z",
+          // AC icon
+          "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+        ];
 
-        <div class="space-y-3 mb-6 flex-grow">
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Leak detection & repair</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Faucet & toilet repairs</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Pipe cleaning & maintenance</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Water heater service</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Emergency repairs 24/7</span>
-          </div>
-        </div>
+        const icon = serviceIcons[index % serviceIcons.length];
+        const altText = service.altText || `Construction finishing work for ${service.name.toLowerCase()}`;
+        const priceDisplay = service.priceUnit === 'per sqm' ? 
+          `Starting AED ${service.startingPrice}/${service.priceUnit}` : 
+          `Starting ${formatPrice(service.startingPrice)}`;
+        
+        return (
+          <div class={`bg-white rounded-3xl overflow-hidden card-shadow border border-gray-100 ${colors.borderHover} transition-all duration-300 transform hover:-translate-y-2 group flex flex-col h-full`}>
+            <!-- Construction Service Image -->
+            <div class="relative h-48 overflow-hidden">
+              <!-- Actual construction image with fallback gradient -->
+              <div class="relative w-full h-full">
+                <img 
+                  src={service.imageUrl} 
+                  alt={altText}
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
+                <!-- Fallback gradient with construction icon if image fails to load -->
+                <div class={`absolute inset-0 w-full h-full bg-gradient-to-br ${colors.imageBg} items-center justify-center hidden`}>
+                  <div class="text-center">
+                    <div class={`w-16 h-16 bg-gradient-to-r ${colors.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform`}>
+                      <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d={icon}/>
+                      </svg>
+                    </div>
+                    <p class={`${colors.priceColor} font-semibold text-sm`}>Construction Finishing</p>
+                    <p class="text-gray-500 text-xs">{service.imageDimensions}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Overlay for better text readability -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:from-black/30 transition-all duration-300"></div>
+              <!-- Service badge overlay -->
+              <div class="absolute top-4 left-4">
+                <div class={`px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold ${colors.priceColor}`}>
+                  Construction Finishing
+                </div>
+              </div>
+            </div>
 
-        <a href="/services/plumbing" class="block w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-xl text-center hover:bg-blue-700 transition-colors text-sm mt-auto">
-          Book Plumbing Service
-        </a>
-      </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="mb-4">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{service.name}</h3>
+                <div class={`${colors.priceColor} font-bold text-lg mb-2`}>{priceDisplay}</div>
+                <p class="text-gray-600 text-sm mb-3">{service.description}</p>
+                <div class="text-xs text-gray-500 italic">{service.targetAudience}</div>
+              </div>
 
-      <!-- AC Service -->
-      <div class="bg-white rounded-3xl p-8 card-shadow border border-gray-100 hover:border-secondary-300 transition-all duration-300 transform hover:-translate-y-2 group flex flex-col h-full">
-        <div class="mb-6">
-          <div class="w-20 h-20 bg-gradient-to-r from-secondary-500 to-secondary-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">AC Service</h3>
-          <div class="text-secondary-600 font-bold text-lg mb-2">Starting AED 200</div>
-          <p class="text-gray-600 text-sm mb-4">Expert cooling system maintenance</p>
-        </div>
+              <div class="space-y-3 mb-6 flex-grow">
+                {service.features.map((feature) => (
+                  <div class="flex items-center space-x-2 text-sm text-gray-700">
+                    <svg class={`w-4 h-4 ${colors.checkColor} flex-shrink-0`} fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
 
-        <div class="space-y-3 mb-6 flex-grow">
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Deep cleaning & sanitization</span>
+              <a 
+                href={getProjectWhatsAppLink(service.name)} 
+                class={`block w-full ${colors.buttonBg} text-white font-bold py-3 px-4 rounded-xl text-center ${colors.buttonHover} transition-colors text-sm mt-auto`}
+              >
+                Get Project Quote
+              </a>
+            </div>
           </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Filter replacement & maintenance</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Performance optimization</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Gas refilling & repairs</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Installation & relocation</span>
-          </div>
-        </div>
-
-        <a href="/services/ac" class="block w-full bg-secondary-600 text-white font-bold py-3 px-4 rounded-xl text-center hover:bg-secondary-700 transition-colors text-sm mt-auto">
-          Book AC Service
-        </a>
-      </div>
-
-      <!-- Painting Services -->
-      <div class="bg-white rounded-3xl p-8 card-shadow border border-gray-100 hover:border-accent-300 transition-all duration-300 transform hover:-translate-y-2 group flex flex-col h-full">
-        <div class="mb-6">
-          <div class="w-20 h-20 bg-gradient-to-r from-accent-500 to-accent-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Painting Services</h3>
-          <div class="text-accent-600 font-bold text-lg mb-2">Starting AED 300</div>
-          <p class="text-gray-600 text-sm mb-4">Professional interior & exterior painting</p>
-        </div>
-
-        <div class="space-y-3 mb-6 flex-grow">
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Interior wall painting</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Ceiling & trim work</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Exterior balcony painting</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Surface preparation & priming</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Premium paint options</span>
-          </div>
-        </div>
-
-        <a href="/services/painting" class="block w-full bg-accent-600 text-white font-bold py-3 px-4 rounded-xl text-center hover:bg-accent-700 transition-colors text-sm mt-auto">
-          Book Painting Service
-        </a>
-      </div>
-
-      <!-- General Repairs -->
-      <div class="bg-white rounded-3xl p-8 card-shadow border border-gray-100 hover:border-primary-300 transition-all duration-300 transform hover:-translate-y-2 group flex flex-col h-full">
-        <div class="mb-6">
-          <div class="w-20 h-20 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">General Repairs</h3>
-          <div class="text-primary-600 font-bold text-lg mb-2">Starting AED 120</div>
-          <p class="text-gray-600 text-sm mb-4">Complete handyman solutions</p>
-        </div>
-
-        <div class="space-y-3 mb-6 flex-grow">
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Door & window repairs</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Cabinet & fixture mounting</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Tile & flooring repairs</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Wall drilling & mounting</span>
-          </div>
-          <div class="flex items-center space-x-2 text-sm text-gray-700">
-            <svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Furniture assembly</span>
-          </div>
-        </div>
-
-        <a href="/services/repairs" class="block w-full bg-primary-600 text-white font-bold py-3 px-4 rounded-xl text-center hover:bg-primary-700 transition-colors text-sm mt-auto">
-          Book Repair Service
-        </a>
-      </div>
+        );
+      })}
     </div>
 
-    <!-- Service Process -->
+    <!-- Construction Process -->
     <div class="bg-white rounded-3xl p-8 md:p-12 card-shadow">
       <div class="text-center mb-12">
-        <h3 class="text-3xl font-bold text-gray-900 mb-4">How Our Service Process Works</h3>
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">How Our Construction Finishing Process Works</h3>
         <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-          From booking to completion, we've streamlined our process to make apartment maintenance 
-          as convenient as possible for Dubai residents.
+          From project assessment to completion, we've perfected our process to deliver 
+          professional construction finishing services for Dubai's construction industry.
         </p>
       </div>
 
@@ -246,8 +194,8 @@
           <div class="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
             1
           </div>
-          <h4 class="font-bold text-gray-900 mb-2">Book Online</h4>
-          <p class="text-gray-600 text-sm">Choose your service, select preferred time, and book instantly through our platform</p>
+          <h4 class="font-bold text-gray-900 mb-2">Project Assessment</h4>
+          <p class="text-gray-600 text-sm">Submit project details and schedule a site visit for detailed assessment and custom quote</p>
         </div>
 
         <!-- Step 2 -->
@@ -255,8 +203,8 @@
           <div class="w-16 h-16 bg-gradient-to-r from-secondary-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
             2
           </div>
-          <h4 class="font-bold text-gray-900 mb-2">Expert Assessment</h4>
-          <p class="text-gray-600 text-sm">Our specialist arrives on time and provides a detailed assessment of your requirements</p>
+          <h4 class="font-bold text-gray-900 mb-2">Site Visit & Quote</h4>
+          <p class="text-gray-600 text-sm">Our construction specialists visit your site and provide detailed project scope and pricing</p>
         </div>
 
         <!-- Step 3 -->
@@ -264,8 +212,8 @@
           <div class="w-16 h-16 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
             3
           </div>
-          <h4 class="font-bold text-gray-900 mb-2">Quality Service</h4>
-          <p class="text-gray-600 text-sm">Professional execution using premium materials and industry-standard practices</p>
+          <h4 class="font-bold text-gray-900 mb-2">Professional Installation</h4>
+          <p class="text-gray-600 text-sm">Expert execution with premium materials, skilled specialists, and construction-grade quality</p>
         </div>
 
         <!-- Step 4 -->
@@ -273,8 +221,8 @@
           <div class="w-16 h-16 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
             4
           </div>
-          <h4 class="font-bold text-gray-900 mb-2">Completion & Warranty</h4>
-          <p class="text-gray-600 text-sm">Final inspection, cleanup, and 30-day warranty on all completed work</p>
+          <h4 class="font-bold text-gray-900 mb-2">Project Handover</h4>
+          <p class="text-gray-600 text-sm">Final inspection, quality check, and 12-month warranty on all construction finishing work</p>
         </div>
       </div>
     </div>

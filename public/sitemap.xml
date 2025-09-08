@@ -6,55 +6,177 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
-  <!-- Homepage -->
+  <!-- Homepage - Construction Finishing Specialists -->
   <url>
     <loc>https://servdubai.netlify.app/</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Main Service Pages -->
+  <!-- Main Construction Service Pages -->
   <url>
     <loc>https://servdubai.netlify.app/services</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://servdubai.netlify.app/packages</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://servdubai.netlify.app/book</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Information Pages -->
+  <!-- Company Information Pages -->
   <url>
     <loc>https://servdubai.netlify.app/about</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://servdubai.netlify.app/contact</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Construction Service-specific URLs -->
+  <url>
+    <loc>https://servdubai.netlify.app/services/kitchen-finishing</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/services/bathroom-finishing</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/services/flooring-tiling</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/services/woodwork-carpentry</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/services/painting-finishing</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/services/ac-installation</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- B2B Construction Package URLs -->
+  <url>
+    <loc>https://servdubai.netlify.app/packages/new-building-package</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/packages/kitchen-bathroom-combo</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/packages/flooring-specialist</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/packages/custom-project-quotes</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Construction Project Booking URLs -->
+  <url>
+    <loc>https://servdubai.netlify.app/book?project=kitchen</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/book?project=bathroom</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/book?project=flooring</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/book?project=woodwork</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/book?project=painting</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/book?project=ac</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://servdubai.netlify.app/book?project=complete</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Success and Utility Pages -->
   <url>
     <loc>https://servdubai.netlify.app/success</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -62,82 +184,24 @@
   <!-- Legal Pages -->
   <url>
     <loc>https://servdubai.netlify.app/privacy</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://servdubai.netlify.app/terms</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Service-specific URLs (if you have individual service pages) -->
+  <!-- Offline Page -->
   <url>
-    <loc>https://servdubai.netlify.app/services/ac</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://servdubai.netlify.app/services/plumbing</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://servdubai.netlify.app/services/electrical</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://servdubai.netlify.app/services/painting</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Package-specific URLs -->
-  <url>
-    <loc>https://servdubai.netlify.app/packages/new-resident</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://servdubai.netlify.app/packages/amc</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Booking URLs with parameters -->
-  <url>
-    <loc>https://servdubai.netlify.app/book?package=new-resident</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://servdubai.netlify.app/book?package=amc</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://servdubai.netlify.app/book?service=emergency</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://servdubai.netlify.app/offline</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
 
 </urlset>

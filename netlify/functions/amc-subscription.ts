@@ -53,11 +53,11 @@ const handler: Handler = async (event: HandlerEvent): Promise<HandlerResponse> =
     // Generate contract ID
     const contractId = `AMC-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
     
-    // Calculate pricing and payment schedule
+    // Calculate pricing and payment schedule for construction maintenance contracts
     const packagePricing = {
-      'basic': { annual: 1200, quarterly: 300, monthly: 110 },
-      'premium': { annual: 2500, quarterly: 625, monthly: 230 },
-      'family': { annual: 1800, quarterly: 450, monthly: 165 },
+      'basic': { annual: 3600, quarterly: 900, monthly: 320 },
+      'premium': { annual: 7200, quarterly: 1800, monthly: 650 },
+      'enterprise': { annual: 12000, quarterly: 3000, monthly: 1100 },
     };
     
     const pricing = packagePricing[subscriptionData.amcPackage as keyof typeof packagePricing];
@@ -102,16 +102,16 @@ const handler: Handler = async (event: HandlerEvent): Promise<HandlerResponse> =
         contractId,
         pricing,
         paymentSchedule,
-        message: 'AMC subscription confirmed! Contract documents have been sent to your email.',
+        message: 'Construction Maintenance Contract confirmed! Contract documents have been sent to your email.',
         whatsappLink: generateAMCWhatsAppLink(subscription),
         benefits: [
-          'Annual maintenance contract activated',
+          'Annual construction maintenance contract activated',
           'Quarterly payment schedule set up',
-          'Priority service booking privileges',
-          'Dedicated account manager assigned',
-          '24/7 emergency response (Premium+ packages)',
-          'Detailed maintenance reports after each visit',
-          'Exclusive member discounts on additional services'
+          'Priority construction support privileges',
+          'Dedicated construction project manager assigned',
+          '24/7 emergency construction response (Premium+ packages)',
+          'Detailed maintenance and inspection reports',
+          'Exclusive member discounts on additional construction services'
         ],
         nextSteps: [
           'Review and sign the contract documents',
@@ -200,33 +200,34 @@ async function sendAMCTeamNotification(subscription: any) {
   });
 
   const emailContent = `
-    🏆 NEW AMC SUBSCRIPTION - ${subscription.contractId}
+    🏗️ NEW CONSTRUCTION MAINTENANCE CONTRACT - ${subscription.contractId}
     
-    Customer Details:
+    Client Details:
     • Name: ${subscription.firstName} ${subscription.lastName}
     • Phone: ${subscription.phone}
     • Email: ${subscription.email}
+    • Company: ${subscription.company || 'Individual Client'}
     
     Property Details:
     • Building: ${subscription.buildingName}
-    • Apartment: ${subscription.apartmentNumber}
+    • Unit/Floor: ${subscription.apartmentNumber}
     • Area: ${subscription.area}, ${subscription.emirate}
     • Building Type: ${subscription.buildingType || 'Not specified'}
-    • Family Size: ${subscription.familySize || 'Not specified'}
+    • Project Size: ${subscription.projectSize || 'Not specified'}
     
     Contract Details:
-    • Package: ${subscription.amcPackage.toUpperCase()} AMC
+    • Package: ${subscription.amcPackage.toUpperCase()} Construction Maintenance
     • Annual Value: AED ${subscription.pricing.annual}
     • Quarterly Payment: AED ${subscription.pricing.quarterly}
     • Start Date: ${subscription.contractStartDate}
     • Payment Method: ${subscription.paymentMethod}
     
     Action Required:
-    1. Assign dedicated account manager
-    2. Contact customer within 24 hours
-    3. Schedule first maintenance visit
-    4. Send welcome package
-    5. Set up customer portal access
+    1. Assign dedicated construction project manager
+    2. Contact client within 24 hours
+    3. Schedule initial construction assessment
+    4. Send construction maintenance welcome package
+    5. Set up project portal access
     
     Payment Schedule: ${subscription.paymentSchedule.map((p: any) => 
       `Q${p.quarter}: AED ${p.amount} due ${p.dueDate}`
@@ -281,15 +282,16 @@ async function scheduleServiceReminders(subscription: any) {
 function generateContractContent(subscription: any): string {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
-      <h1 style="color: #0D9488;">Annual Maintenance Contract</h1>
+      <h1 style="color: #0D9488;">Construction Maintenance Contract</h1>
       <h2>Contract ID: ${subscription.contractId}</h2>
       
-      <h3>Customer Information</h3>
+      <h3>Client Information</h3>
       <p><strong>Name:</strong> ${subscription.firstName} ${subscription.lastName}</p>
-      <p><strong>Property:</strong> ${subscription.buildingName}, Apt ${subscription.apartmentNumber}</p>
+      <p><strong>Company:</strong> ${subscription.company || 'Individual Client'}</p>
+      <p><strong>Property:</strong> ${subscription.buildingName}, Unit ${subscription.apartmentNumber}</p>
       <p><strong>Location:</strong> ${subscription.area}, ${subscription.emirate}</p>
       
-      <h3>Service Package: ${subscription.amcPackage.toUpperCase()} AMC</h3>
+      <h3>Service Package: ${subscription.amcPackage.toUpperCase()} Construction Maintenance</h3>
       <p><strong>Contract Value:</strong> AED ${subscription.pricing.annual} per year</p>
       <p><strong>Payment Terms:</strong> Quarterly - AED ${subscription.pricing.quarterly}</p>
       <p><strong>Contract Period:</strong> 12 months from ${subscription.contractStartDate}</p>
@@ -350,27 +352,30 @@ function generateContractContent(subscription: any): string {
 function getServicesList(packageType: string): string {
   const services = {
     basic: [
-      '4 scheduled AC maintenance visits',
-      'Emergency plumbing response (2 visits/year)',
-      'General repairs coverage (basic fixtures)',
+      '4 scheduled construction maintenance inspections',
+      'Emergency construction support (2 visits/year)',
+      'Basic finishing touch-ups and repairs',
       'Phone support during business hours',
-      '48-hour response time'
+      '48-hour response time for non-critical issues'
     ],
     premium: [
-      '6 AC maintenance visits + deep cleaning',
-      'Unlimited emergency visits (plumbing, general repairs)',
-      'Priority 24/7 support hotline',
+      '6 comprehensive construction maintenance visits',
+      'Unlimited emergency construction support',
+      'Priority 24/7 construction hotline',
       'Same-day emergency response',
-      'Painting touch-ups (2/year)',
-      'Quarterly maintenance reports'
+      'Quarterly painting and finishing touch-ups',
+      'Detailed construction maintenance reports',
+      'Preventive maintenance scheduling'
     ],
-    family: [
-      '5 AC maintenance visits',
-      'Child-safe repairs and maintenance',
-      'Weekend service availability',
-      'Emergency support for safety issues',
-      'Seasonal maintenance reminders',
-      'Family-friendly service protocols'
+    enterprise: [
+      '12 scheduled construction maintenance visits',
+      'Unlimited emergency construction support',
+      '24/7 dedicated construction project manager',
+      'Same-day emergency response guarantee',
+      'Monthly finishing work inspections',
+      'Comprehensive construction maintenance reports',
+      'Preventive maintenance and upgrade planning',
+      'Priority access to construction specialists'
     ]
   };
 
@@ -386,13 +391,13 @@ function generateContractPDF(subscription: any): Buffer {
 function generateAMCWhatsAppLink(subscription: any): string {
   const message = `Hi ServDubai! 
 
-I just signed up for an AMC subscription:
-🏆 Contract ID: ${subscription.contractId}
-📦 Package: ${subscription.amcPackage.toUpperCase()} AMC
+I just signed up for a Construction Maintenance Contract:
+🏗️ Contract ID: ${subscription.contractId}
+📦 Package: ${subscription.amcPackage.toUpperCase()} Construction Maintenance
 💰 Annual Value: AED ${subscription.pricing.annual}
 📅 Start Date: ${subscription.contractStartDate}
 
-Looking forward to excellent service!
+Looking forward to excellent construction maintenance service!
 
 Best regards,
 ${subscription.firstName} ${subscription.lastName}`;

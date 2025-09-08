@@ -108,95 +108,108 @@ const handler: Handler = async (event: HandlerEvent): Promise<HandlerResponse> =
 
 function getRoutingInfo(inquiryType: string) {
   const routingMap = {
-    'new-resident': {
-      assignedTo: 'new-residents@servdubai.ae',
-      teamName: 'New Resident Specialists',
+    'project-inquiry': {
+      assignedTo: 'projects@servdubai.ae',
+      teamName: 'Construction Project Specialists',
       priority: 'high',
       estimatedResponse: '1 hour',
-      message: 'Our new resident specialists will contact you within 1 hour with a free consultation.',
+      message: 'Our construction project specialists will contact you within 1 hour for project consultation.',
       nextSteps: [
-        'Free property assessment call within 1 hour',
-        'Customized service package recommendation',
-        'Special new resident discount application',
-        'Priority booking for your convenience'
+        'Free project consultation call within 1 hour',
+        'Site visit scheduling for detailed assessment',
+        'Customized construction finishing quote',
+        'Project timeline and milestone planning'
       ]
     },
-    'amc-inquiry': {
-      assignedTo: 'amc@servdubai.ae',
-      teamName: 'AMC Specialists',
+    'developer-inquiry': {
+      assignedTo: 'developers@servdubai.ae',
+      teamName: 'Developer Relations Team',
       priority: 'high',
-      estimatedResponse: '2 hours',
-      message: 'Our AMC specialists will contact you within 2 hours with detailed package information.',
+      estimatedResponse: '30 minutes',
+      message: 'Our developer relations team will contact you within 30 minutes for bulk project discussion.',
       nextSteps: [
-        'Detailed AMC package consultation',
-        'Property assessment for optimal package selection',
-        'Custom quote with potential savings analysis',
-        'Flexible contract terms discussion'
+        'Immediate consultation for bulk projects',
+        'Multi-unit finishing package assessment',
+        'Volume pricing and timeline discussion',
+        'Dedicated project manager assignment'
+      ]
+    },
+    'contractor-inquiry': {
+      assignedTo: 'contractors@servdubai.ae',
+      teamName: 'Contractor Partnership Team',
+      priority: 'high',
+      estimatedResponse: '1 hour',
+      message: 'Our contractor partnership team will contact you within 1 hour for collaboration discussion.',
+      nextSteps: [
+        'Partnership opportunity assessment',
+        'Subcontracting terms and pricing discussion',
+        'Quality standards and timeline alignment',
+        'Contract framework development'
       ]
     },
     'emergency': {
       assignedTo: 'emergency@servdubai.ae',
-      teamName: 'Emergency Response Team',
+      teamName: 'Emergency Construction Support',
       priority: 'critical',
       estimatedResponse: '30 minutes',
-      message: 'Our emergency team will call you within 30 minutes.',
+      message: 'Our emergency construction team will call you within 30 minutes.',
       nextSteps: [
         'Immediate phone consultation within 30 minutes',
-        'Emergency service dispatch if required',
-        'Same-day resolution for critical issues',
-        'Follow-up to ensure problem is resolved'
+        'Emergency construction support dispatch',
+        'Same-day resolution for critical construction issues',
+        'Follow-up to ensure project continuity'
       ]
     },
     'pricing': {
       assignedTo: 'quotes@servdubai.ae',
-      teamName: 'Pricing Specialists',
+      teamName: 'Construction Pricing Specialists',
       priority: 'normal',
-      estimatedResponse: '4 hours',
-      message: 'Our pricing team will send you a detailed quote within 4 hours.',
+      estimatedResponse: '2 hours',
+      message: 'Our construction pricing team will send you a detailed quote within 2 hours.',
       nextSteps: [
-        'Detailed service assessment',
-        'Transparent pricing breakdown',
-        'Multiple package options',
-        'Flexible payment terms'
+        'Detailed construction project assessment',
+        'Transparent material and labor cost breakdown',
+        'Multiple finishing package options',
+        'Flexible payment and timeline terms'
       ]
     },
     'complaint': {
       assignedTo: 'support@servdubai.ae',
-      teamName: 'Customer Support Team',
+      teamName: 'Project Support Team',
       priority: 'high',
       estimatedResponse: '1 hour',
-      message: 'Our customer support manager will personally address your concern within 1 hour.',
+      message: 'Our project support manager will personally address your concern within 1 hour.',
       nextSteps: [
-        'Personal call from customer support manager',
-        'Thorough investigation of your concern',
+        'Personal call from project support manager',
+        'Thorough investigation of construction concern',
         'Resolution plan within 24 hours',
-        'Follow-up to ensure satisfaction'
+        'Quality assurance follow-up'
       ]
     },
     'feedback': {
       assignedTo: 'feedback@servdubai.ae',
-      teamName: 'Quality Assurance Team',
+      teamName: 'Construction Quality Team',
       priority: 'normal',
       estimatedResponse: '24 hours',
-      message: 'Thank you for your feedback! Our quality team will review and respond within 24 hours.',
+      message: 'Thank you for your feedback! Our construction quality team will review and respond within 24 hours.',
       nextSteps: [
-        'Feedback review by quality assurance team',
+        'Feedback review by construction quality team',
         'Process improvement implementation if applicable',
         'Personal response within 24 hours',
-        'Invitation to participate in future service improvements'
+        'Invitation to participate in future project improvements'
       ]
     },
     'general': {
       assignedTo: 'info@servdubai.ae',
-      teamName: 'Customer Service Team',
+      teamName: 'Construction Information Team',
       priority: 'normal',
-      estimatedResponse: '4 hours',
-      message: 'Our customer service team will respond to your inquiry within 4 hours.',
+      estimatedResponse: '2 hours',
+      message: 'Our construction information team will respond to your inquiry within 2 hours.',
       nextSteps: [
-        'Comprehensive response to your questions',
-        'Additional information packets if requested',
-        'Service recommendations based on your needs',
-        'Follow-up call if needed'
+        'Comprehensive response about construction services',
+        'Construction finishing information packets',
+        'Service recommendations based on your project needs',
+        'Follow-up consultation if needed'
       ]
     }
   };
@@ -222,23 +235,27 @@ async function routeInquiry(inquiry: any, routingInfo: any) {
   };
 
   const emailContent = `
-    ${priorityEmoji[inquiry.priority as keyof typeof priorityEmoji]} ${inquiry.priority.toUpperCase()} PRIORITY INQUIRY - ${inquiry.inquiryId}
+    ${priorityEmoji[inquiry.priority as keyof typeof priorityEmoji]} ${inquiry.priority.toUpperCase()} PRIORITY CONSTRUCTION INQUIRY - ${inquiry.inquiryId}
     
-    Customer Details:
+    Client Details:
     • Name: ${inquiry.firstName} ${inquiry.lastName}
     • Phone: ${inquiry.phone}
     • Email: ${inquiry.email}
+    • Company: ${inquiry.company || 'Individual Client'}
     • Preferred Contact: ${inquiry.preferredContact || 'Phone'}
     
-    Inquiry Details:
+    Construction Inquiry Details:
     • Type: ${inquiry.inquiryType}
-    • Subject: ${inquiry.subject || 'General Inquiry'}
-    • Property: ${inquiry.buildingName ? `${inquiry.buildingName}, ${inquiry.area || 'Dubai'}` : 'Not specified'}
+    • Subject: ${inquiry.subject || 'Construction Finishing Inquiry'}
+    • Project Location: ${inquiry.buildingName ? `${inquiry.buildingName}, ${inquiry.area || 'Dubai'}` : 'Not specified'}
+    • Project Type: ${inquiry.projectType || 'Not specified'}
     
     Message:
     ${inquiry.message}
     
-    ${inquiry.specificService ? `Specific Service Requested: ${inquiry.specificService}` : ''}
+    ${inquiry.specificService ? `Specific Construction Service: ${inquiry.specificService}` : ''}
+    ${inquiry.projectSize ? `Project Size: ${inquiry.projectSize}` : ''}
+    ${inquiry.timeline ? `Project Timeline: ${inquiry.timeline}` : ''}
     ${inquiry.previousCustomer ? 'Previous Customer: Yes' : 'Previous Customer: No'}
     ${inquiry.marketingSource ? `How they heard about us: ${inquiry.marketingSource}` : ''}
     
@@ -248,7 +265,7 @@ async function routeInquiry(inquiry: any, routingInfo: any) {
     Action Items:
     ${routingInfo.nextSteps.map((step: string, index: number) => `${index + 1}. ${step}`).join('\n')}
     
-    Customer WhatsApp: https://wa.me/${inquiry.phone.replace(/[^0-9]/g, '')}
+    Client WhatsApp: https://wa.me/${inquiry.phone.replace(/[^0-9]/g, '')}
   `;
 
   await transporter.sendMail({
@@ -278,7 +295,7 @@ async function sendCustomerAcknowledgment(inquiry: any) {
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
       <div style="text-align: center; margin-bottom: 30px;">
         <h1 style="color: #0D9488; margin-bottom: 10px;">Thank You for Contacting ServDubai!</h1>
-        <p style="color: #6b7280; font-size: 16px;">Your inquiry has been received and is being processed</p>
+        <p style="color: #6b7280; font-size: 16px;">Your construction finishing inquiry has been received and is being processed</p>
       </div>
       
       <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; border-left: 4px solid #0D9488; margin-bottom: 25px;">
@@ -298,28 +315,41 @@ async function sendCustomerAcknowledgment(inquiry: any) {
       
       <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
         <h4 style="color: #374151; margin-top: 0;">Need Immediate Assistance?</h4>
-        <p style="margin-bottom: 10px;"><strong>📞 Call:</strong> +971 50 123 4567</p>
-        <p style="margin-bottom: 10px;"><strong>💬 WhatsApp:</strong> <a href="${generateInquiryWhatsAppLink(inquiry)}" style="color: #0D9488;">Click to chat</a></p>
+        <p style="margin-bottom: 10px;"><strong>📞 Main Office:</strong> +971 55 241 8446</p>
+        <p style="margin-bottom: 10px;"><strong>💬 WhatsApp:</strong> <a href="${generateInquiryWhatsAppLink(inquiry)}" style="color: #0D9488;">Click to chat about your project</a></p>
         <p style="margin-bottom: 0;"><strong>📧 Email:</strong> ${routingInfo.assignedTo}</p>
       </div>
       
-      ${inquiry.inquiryType === 'new-resident' ? `
+      ${inquiry.inquiryType === 'project-inquiry' || inquiry.inquiryType === 'developer-inquiry' ? `
         <div style="background-color: #ecfdf5; padding: 20px; border-radius: 8px; border: 1px solid #10b981; margin-bottom: 25px;">
-          <h4 style="color: #059669; margin-top: 0;">🎉 New Resident Special Offers!</h4>
+          <h4 style="color: #059669; margin-top: 0;">🏗️ Construction Finishing Benefits!</h4>
           <ul style="color: #047857; margin-bottom: 0;">
-            <li><strong>FREE</strong> initial property inspection</li>
-            <li><strong>20-30% OFF</strong> your first service</li>
-            <li><strong>Priority scheduling</strong> for move-in timeline</li>
-            <li><strong>Dedicated support</strong> for new residents</li>
+            <li><strong>FREE</strong> on-site project assessment</li>
+            <li><strong>20+ Skilled Specialists</strong> for all construction trades</li>
+            <li><strong>Bulk pricing</strong> for multiple units or large projects</li>
+            <li><strong>Flexible scheduling</strong> to match construction timelines</li>
+            <li><strong>Quality guarantee</strong> with 6-month warranty</li>
           </ul>
         </div>
       ` : ''}
       
+      <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h4 style="color: #0D9488; margin-top: 0;">🎯 Our Construction Finishing Services</h4>
+        <ul style="color: #374151; margin-bottom: 0;">
+          <li><strong>Kitchen Installation & Setup</strong> - Complete kitchen finishing from AED 2,500</li>
+          <li><strong>Bathroom Finishing Work</strong> - Professional bathroom completion from AED 1,800</li>
+          <li><strong>Flooring & Tiling</strong> - Marble, granite, and tile installation from AED 80/sqm</li>
+          <li><strong>Custom Woodwork</strong> - Built-in wardrobes and carpentry from AED 1,200</li>
+          <li><strong>Painting & Finishing</strong> - Interior and exterior painting from AED 25/sqm</li>
+          <li><strong>AC Installation</strong> - Professional AC setup from AED 800</li>
+        </ul>
+      </div>
+      
       <div style="text-align: center; padding-top: 30px; border-top: 1px solid #e5e7eb; color: #6b7280;">
-        <p style="margin-bottom: 10px;">Follow us for tips and updates:</p>
-        <p>🌐 www.servdubai.ae | 📱 @ServDubaiOfficial</p>
+        <p style="margin-bottom: 10px;">Follow us for construction tips and project updates:</p>
+        <p>🌐 www.servdubai.ae | 📱 @ServDubaiConstruction</p>
         <p style="font-size: 14px; margin-top: 20px;">
-          This is an automated confirmation. Please do not reply to this email.
+          This is an automated confirmation. For immediate project assistance, please call +971 55 241 8446
         </p>
       </div>
     </div>
@@ -360,16 +390,18 @@ async function storeInquiry(inquiry: any) {
 function generateInquiryWhatsAppLink(inquiry: any): string {
   const message = `Hi ServDubai! 
 
-I submitted an inquiry:
+I submitted a construction finishing inquiry:
 📋 Inquiry ID: ${inquiry.inquiryId}
 📝 Type: ${inquiry.inquiryType}
 👤 Name: ${inquiry.firstName} ${inquiry.lastName}
+🏢 Company: ${inquiry.company || 'Individual Client'}
+🏗️ Project: ${inquiry.projectType || 'Construction finishing'}
 
 ${inquiry.message}
 
-Looking forward to your response!`;
+Looking forward to discussing my construction project!`;
 
-  const phoneNumber = '971501234567'; // Replace with actual WhatsApp Business number
+  const phoneNumber = '971552418446'; // ServDubai Construction WhatsApp Business number
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 }
 

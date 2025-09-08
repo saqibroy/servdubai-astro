@@ -7,8 +7,8 @@ export const siteConfig = {
   // ============================================================================
   business: {
     name: "ServDubai",
-    tagline: "Dubai's Premier Building Services",
-    description: "Professional building maintenance and property services for new apartment residents in Dubai. AMC packages, emergency repairs, and comprehensive building solutions.",
+    tagline: "Dubai's Premier Construction Finishing Specialists",
+    description: "Professional construction finishing services for newly constructed buildings in Dubai. We complete kitchen installations, bathroom finishing, flooring, woodwork, painting, and AC setup for developers and contractors.",
     
     // Contact Information
     phone: "+971552418446",
@@ -38,11 +38,21 @@ export const siteConfig = {
       timezone: "Asia/Dubai"
     },
     
-    // Service Areas
+    // Service Areas - Construction Projects
     serviceAreas: [
-      "Dubai Marina", "Downtown Dubai", "Business Bay", "DIFC", 
-      "JBR", "Palm Jumeirah", "Dubai Hills", "City Walk",
-      "Al Barsha", "Jumeirah", "Deira", "Bur Dubai"
+      "Dubai Marina", "Downtown Dubai", "Business Bay", "DIFC",
+      "Dubai Hills", "City Walk", "Al Barsha", "Jumeirah",
+      "Dubai South", "Dubai Investment Park", "JBR", "Palm Jumeirah",
+      "Deira", "Bur Dubai", "Karama", "Satwa", "Al Qusais"
+    ],
+    
+    // Target Market
+    targetMarket: [
+      "Construction companies",
+      "Real estate developers", 
+      "Building contractors",
+      "Property management companies",
+      "Individual apartment owners in new buildings"
     ]
   },
 
@@ -57,66 +67,95 @@ export const siteConfig = {
         position: "General Manager",
         email: "aqib@servdubai.com",
         phone: "+971552418446",
-        bio: "15+ years experience in Dubai property management",
-        image: "/team/ahmed.jpg",
-        specialties: ["Property Management", "Team Leadership", "Customer Relations"]
+        bio: "15+ years experience in Dubai construction finishing and project management",
+        image: "/team/construction-site-manager.jpg",
+        altText: "Construction project manager overseeing finishing work at Dubai construction site",
+        specialties: ["Construction Project Management", "Team Leadership", "Developer Relations"]
       },
       {
         name: "Sarah Johnson", 
         position: "Operations Manager",
         email: "sarah@servdubai.com",
         phone: "+971501234568",
-        bio: "Expert in building maintenance operations and quality control",
-        image: "/team/sarah.jpg",
-        specialties: ["Operations", "Quality Control", "Process Management"]
+        bio: "Expert in construction finishing operations and quality control for new buildings",
+        image: "/team/construction-operations-manager.jpg",
+        altText: "Operations manager coordinating construction finishing work with team at Dubai building site",
+        specialties: ["Construction Operations", "Quality Control", "Project Coordination"]
       }
     ],
     
-    // Technical Team Leads
-    technicalLeads: [
+    // Construction Specialists
+    constructionSpecialists: [
       {
         name: "Hassan Ali",
-        position: "Senior HVAC Technician",
+        position: "Kitchen Installation Specialist",
         email: "hassan@servdubai.com",
         phone: "+971501234569",
-        certifications: ["HVAC Certified", "Refrigeration Expert"],
+        certifications: ["Kitchen Design Certified", "Cabinet Installation Expert"],
         experience: "12 years",
-        specialties: ["AC Installation", "Maintenance", "Emergency Repairs"]
+        specialties: ["Kitchen Installations", "Cabinet Fitting", "Countertop Installation", "Appliance Connections"]
       },
       {
         name: "Mohammad Rashid",
-        position: "Master Electrician", 
+        position: "Bathroom Finishing Supervisor", 
         email: "mohammad@servdubai.com",
         phone: "+971501234570",
-        certifications: ["Licensed Electrician", "Safety Inspector"],
+        certifications: ["Plumbing Licensed", "Tile Installation Certified"],
         experience: "10 years",
-        specialties: ["Electrical Installation", "Safety Systems", "Smart Home"]
+        specialties: ["Bathroom Fixtures", "Tile & Marble Work", "Plumbing Connections", "Waterproofing"]
       },
       {
         name: "Priya Sharma",
-        position: "Plumbing Supervisor",
+        position: "Flooring & Tiling Expert",
         email: "priya@servdubai.com", 
         phone: "+971501234571",
-        certifications: ["Master Plumber", "Water Systems Expert"],
+        certifications: ["Marble Installation Certified", "Flooring Specialist"],
         experience: "8 years",
-        specialties: ["Plumbing Systems", "Water Treatment", "Leak Detection"]
+        specialties: ["Marble Installation", "Granite Fitting", "Ceramic Tiling", "Floor Polishing"]
+      },
+      {
+        name: "Ahmed Al-Mansouri",
+        position: "Woodwork & Carpentry Lead",
+        email: "ahmed@servdubai.com",
+        phone: "+971501234574",
+        certifications: ["Master Carpenter", "Custom Furniture Designer"],
+        experience: "14 years",
+        specialties: ["Built-in Wardrobes", "Custom Cabinets", "Door Finishing", "Wooden Flooring"]
+      },
+      {
+        name: "Carlos Rodriguez",
+        position: "Painting & Finishing Specialist",
+        email: "carlos@servdubai.com",
+        phone: "+971501234575",
+        certifications: ["Professional Painter", "Surface Preparation Expert"],
+        experience: "9 years",
+        specialties: ["Interior Painting", "Exterior Painting", "Decorative Finishes", "Surface Preparation"]
+      },
+      {
+        name: "Raj Patel",
+        position: "AC Installation Technician",
+        email: "raj@servdubai.com",
+        phone: "+971501234576",
+        certifications: ["HVAC Certified", "AC Installation Expert"],
+        experience: "11 years",
+        specialties: ["Split AC Installation", "Central AC Setup", "Ductwork", "System Commissioning"]
       }
     ],
     
-    // Customer Service
-    customerService: [
+    // Project Coordination
+    projectCoordination: [
       {
         name: "Fatima Al-Zahra",
-        position: "Customer Service Manager",
-        email: "support@servdubai.com",
+        position: "Project Coordinator",
+        email: "projects@servdubai.com",
         phone: "+971501234572",
         languages: ["English", "Arabic", "Hindi"],
-        availability: "24/7"
+        availability: "8 AM - 6 PM"
       },
       {
         name: "John Martinez",
-        position: "Booking Coordinator", 
-        email: "bookings@servdubai.com",
+        position: "Site Visit Coordinator", 
+        email: "sitevisits@servdubai.com",
         phone: "+971501234573",
         languages: ["English", "Spanish"],
         availability: "8 AM - 8 PM"
@@ -125,118 +164,297 @@ export const siteConfig = {
   },
 
   // ============================================================================
-  // SERVICE PRICING
+  // CONSTRUCTION FINISHING SERVICES & PRICING
   // ============================================================================
-  pricing: {
-    // New Resident Packages
-    newResidentPackages: {
-      "move-in-ready": {
-        price: 800,
-        name: "Move-in Ready Package",
-        description: "Complete move-in preparation including deep cleaning, basic repairs, and safety checks",
-        features: ["Deep cleaning", "Basic repairs", "Safety inspection", "AC check", "Plumbing check"],
-        duration: "4-6 hours",
-        warranty: "30 days"
+  services: {
+    // Construction Finishing Services
+    constructionFinishing: {
+      kitchen: {
+        id: "kitchen-finishing",
+        name: "Kitchen Finishing Projects",
+        description: "From empty shells to dream kitchens - complete installations including cabinets, countertops, appliances, and connections",
+        startingPrice: 2500,
+        priceUnit: "per project",
+        features: ["Cabinet installation", "Countertop fitting", "Appliance connections", "Plumbing & electrical work"],
+        targetAudience: "Developers & contractors",
+        imageUrl: "/services/construction-kitchen-installation.jpg",
+        imageDimensions: "800x600px",
+        altText: "Professional kitchen installation work showing cabinet fitting, countertop installation, and appliance connections in Dubai construction project"
       },
-      "first-month-free": {
-        price: 650,
-        name: "First Month Free",
-        description: "First month free maintenance service for new residents",
-        features: ["One free service call", "Basic maintenance", "Priority booking"],
-        duration: "2-4 hours", 
-        warranty: "30 days"
+      bathroom: {
+        id: "bathroom-finishing",
+        name: "Bathroom Construction Completion", 
+        description: "Professional bathroom finishing including fixture installation, tiling, marble work, and plumbing connections",
+        startingPrice: 1800,
+        priceUnit: "per project",
+        features: ["Fixture installation", "Tile & marble work", "Plumbing connections", "Waterproofing"],
+        targetAudience: "Construction companies and contractors",
+        imageUrl: "/services/construction-bathroom-finishing.jpg",
+        imageDimensions: "800x600px",
+        altText: "Bathroom finishing work including fixture installation, tile work, and plumbing connections for new building construction"
       },
-      "new-building-special": {
-        price: 750,
-        name: "New Building Special",
-        description: "Special package for new building residents with comprehensive setup",
-        features: ["Building inspection", "Setup assistance", "Maintenance planning"],
-        duration: "3-5 hours",
-        warranty: "45 days"
+      flooring: {
+        id: "flooring-tiling",
+        name: "Flooring & Tiling Specialists",
+        description: "Expert marble, granite, and tile installation for new buildings - we make floors beautiful and durable",
+        startingPrice: 80,
+        priceUnit: "per sqm",
+        features: ["Marble installation", "Granite fitting", "Ceramic tiling", "Floor polishing"],
+        targetAudience: "Building developers and owners",
+        imageUrl: "/services/construction-marble-installation.jpg",
+        imageDimensions: "1200x800px",
+        altText: "Marble and tile installation work showing premium flooring installation for Dubai construction project"
+      },
+      woodwork: {
+        id: "woodwork-carpentry",
+        name: "Custom Woodwork & Carpentry",
+        description: "Built-in wardrobes, custom cabinets, and wooden installations that transform new apartments into homes",
+        startingPrice: 1200,
+        priceUnit: "per project",
+        features: ["Built-in wardrobes", "Custom cabinets", "Door finishing", "Wooden flooring"],
+        targetAudience: "Property developers and individual owners",
+        imageUrl: "/services/construction-woodwork-carpentry.jpg",
+        imageDimensions: "800x600px",
+        altText: "Custom woodwork and carpentry installation including built-in wardrobes and cabinet work for new construction"
+      },
+      painting: {
+        id: "painting-finishing",
+        name: "Building Painting & Finishing",
+        description: "Complete interior and exterior painting services for new constructions - from primer to final decorative finishes",
+        startingPrice: 25,
+        priceUnit: "per sqm", 
+        features: ["Interior painting", "Exterior painting", "Primer application", "Decorative finishes"],
+        targetAudience: "Construction companies and building owners",
+        imageUrl: "/services/construction-building-painting.jpg",
+        imageDimensions: "1000x600px",
+        altText: "Building painting and finishing work showing interior and exterior painting for Dubai construction project"
+      },
+      ac: {
+        id: "ac-installation",
+        name: "AC Installation & Setup",
+        description: "Professional air conditioning installation and setup for new buildings - ensuring comfort from day one",
+        startingPrice: 800,
+        priceUnit: "per unit",
+        features: ["Split AC installation", "Central AC setup", "Ductwork", "System commissioning"],
+        targetAudience: "Developers and building contractors",
+        imageUrl: "/services/construction-ac-installation.jpg",
+        imageDimensions: "800x600px",
+        altText: "AC installation and setup work showing split unit installation and ductwork for new building construction"
+      }
+    }
+  },
+
+  // ============================================================================
+  // B2B CONSTRUCTION PACKAGES
+  // ============================================================================
+  packages: {
+    // B2B Construction Packages - Direct access for tests
+    newBuildingPackage: {
+      name: "New Building Package",
+      priceRange: [8000, 15000],
+      description: "Complete apartment finishing (kitchen + bathroom + flooring)",
+      targetMarket: "Perfect for developers handing over units",
+      features: ["Bulk pricing for multiple units", "Flexible timeline to match construction schedules", "Quality guarantee", "Project management included"],
+      bulkDiscount: true,
+      siteVisitIncluded: true,
+      duration: "2-4 weeks per unit",
+      warranty: "12 months"
+    },
+    kitchenBathroomCombo: {
+      name: "Kitchen & Bathroom Combo", 
+      priceRange: [4500, 8000],
+      description: "Complete kitchen and bathroom finishing",
+      targetMarket: "Ideal for apartment upgrades",
+      features: ["Includes all installations and connections", "Quality materials included", "Professional project coordination"],
+      bulkDiscount: false,
+      siteVisitIncluded: true,
+      duration: "1-2 weeks",
+      warranty: "12 months"
+    },
+    flooringSpecialist: {
+      name: "Flooring Specialist Package",
+      priceRange: [3000, 6000], 
+      description: "Complete flooring installation (marble/tile/wood)",
+      targetMarket: "Perfect for large area projects",
+      features: ["Surface preparation and finishing", "Premium material options", "Professional installation team"],
+      bulkDiscount: true,
+      siteVisitIncluded: true,
+      duration: "1-3 weeks",
+      warranty: "24 months"
+    },
+    customProjectQuotes: {
+      name: "Custom Project Quotes",
+      priceRange: [0, 0], // Custom pricing
+      description: "Tailored solutions for unique construction finishing needs",
+      targetMarket: "All construction industry clients",
+      features: ["Site visit and detailed assessment", "Customized pricing based on scope", "Flexible timeline to match construction schedules", "Dedicated project manager"],
+      bulkDiscount: true,
+      siteVisitIncluded: true,
+      duration: "Variable based on scope",
+      warranty: "12-24 months"
+    },
+    
+    // Nested structure for component access
+    constructionPackages: {
+      "new-building-package": {
+        name: "New Building Package",
+        priceRange: [8000, 15000],
+        description: "Complete apartment finishing (kitchen + bathroom + flooring)",
+        targetMarket: "Perfect for developers handing over units",
+        features: ["Bulk pricing for multiple units", "Flexible timeline to match construction schedules", "Quality guarantee", "Project management included"],
+        bulkDiscount: true,
+        siteVisitIncluded: true,
+        duration: "2-4 weeks per unit",
+        warranty: "12 months"
+      },
+      "kitchen-bathroom-combo": {
+        name: "Kitchen & Bathroom Combo", 
+        priceRange: [4500, 8000],
+        description: "Complete kitchen and bathroom finishing",
+        targetMarket: "Ideal for apartment upgrades",
+        features: ["Includes all installations and connections", "Quality materials included", "Professional project coordination"],
+        bulkDiscount: false,
+        siteVisitIncluded: true,
+        duration: "1-2 weeks",
+        warranty: "12 months"
+      },
+      "flooring-specialist": {
+        name: "Flooring Specialist Package",
+        priceRange: [3000, 6000], 
+        description: "Complete flooring installation (marble/tile/wood)",
+        targetMarket: "Perfect for large area projects",
+        features: ["Surface preparation and finishing", "Premium material options", "Professional installation team"],
+        bulkDiscount: true,
+        siteVisitIncluded: true,
+        duration: "1-3 weeks",
+        warranty: "24 months"
+      },
+      "custom-project-quotes": {
+        name: "Custom Project Quotes",
+        priceRange: [0, 0], // Custom pricing
+        description: "Tailored solutions for unique construction finishing needs",
+        targetMarket: "All construction industry clients",
+        features: ["Site visit and detailed assessment", "Customized pricing based on scope", "Flexible timeline to match construction schedules", "Dedicated project manager"],
+        bulkDiscount: true,
+        siteVisitIncluded: true,
+        duration: "Variable based on scope",
+        warranty: "12-24 months"
       }
     },
     
-    // AMC Packages
+    // Construction Maintenance Contracts (formerly AMC)
+    constructionContracts: {
+      "building-maintenance": {
+        annual: 15000,
+        quarterly: 3750,
+        name: "Building Maintenance Contract",
+        description: "Ongoing maintenance for completed construction projects",
+        features: ["Quarterly inspections", "Touch-up work included", "Priority response", "Warranty extensions"],
+        serviceFrequency: "Quarterly",
+        emergencyResponse: "Same day",
+        targetMarket: "Property developers and building owners"
+      },
+      "developer-support": {
+        annual: 25000,
+        quarterly: 6250,
+        name: "Developer Support Contract", 
+        description: "Comprehensive support for multiple building projects",
+        features: ["Monthly site visits", "All finishing work covered", "24/7 project support", "Bulk project discounts"],
+        serviceFrequency: "Monthly",
+        emergencyResponse: "2 hours",
+        targetMarket: "Real estate developers and construction companies"
+      },
+      "contractor-partnership": {
+        annual: 20000,
+        quarterly: 5000,
+        name: "Contractor Partnership",
+        description: "Partnership program for construction contractors",
+        features: ["Bi-monthly consultations", "Preferred pricing", "Priority scheduling", "Joint project planning"],
+        serviceFrequency: "Bi-monthly", 
+        emergencyResponse: "4 hours",
+        targetMarket: "Building contractors and construction companies"
+      }
+    },
+    
+    // Pricing Rules for Construction Projects
+    discounts: {
+      bulkProjects: 0.15,    // 15% discount for multiple units (5+ units)
+      largeDeveloper: 0.20,  // 20% discount for large developers (20+ units)
+      contractCustomer: 0.10, // 10% discount for contract customers
+      referral: 0.05         // 5% discount for referrals
+    },
+    
+    surcharges: {
+      urgentProject: 200,    // AED 200 for urgent project completion
+      weekend: 100,          // AED 100 for weekend work
+      afterHours: 150        // AED 150 for after-hours work
+    },
+    
+    // Payment Terms for Construction Projects
+    installmentThreshold: 5000, // Minimum amount for installment (higher for B2B)
+    advancePayment: 0.40,       // 40% advance for construction projects
+    milestonePayments: true     // Enable milestone-based payments for large projects
+  },
+
+  // ============================================================================
+  // TEMPORARY PRICING STRUCTURE (for backward compatibility until booking form is rebuilt)
+  // ============================================================================
+  pricing: {
+    // Temporary structure to prevent build errors - will be removed when booking form is rebuilt in task 5
+    newResidentPackages: {
+      "move-in": {
+        price: 800,
+        description: "Move-in Ready Package - Complete apartment preparation"
+      },
+      "first-month": {
+        price: 0,
+        description: "First Month Free Package - Complimentary inspection + discounts"
+      },
+      "new-building": {
+        price: 0,
+        description: "New Building Special - 30% off all services"
+      }
+    },
     amcPackages: {
       "basic": {
         annual: 1200,
         quarterly: 300,
-        name: "Basic AMC",
-        description: "Essential maintenance coverage for your property",
-        features: ["Quarterly visits", "Basic repairs", "Emergency support", "Priority booking"],
-        serviceFrequency: "Quarterly",
-        emergencyResponse: "Same day"
-      },
-      "premium": {
-        annual: 2500,
-        quarterly: 625,
-        name: "Premium AMC", 
-        description: "Comprehensive maintenance with priority service",
-        features: ["Monthly visits", "All repairs included", "24/7 emergency", "Premium support"],
-        serviceFrequency: "Monthly",
-        emergencyResponse: "2 hours"
+        description: "Basic AMC Package"
       },
       "family": {
         annual: 1800,
         quarterly: 450,
-        name: "Family AMC",
-        description: "Perfect for families with comprehensive home care",
-        features: ["Bi-monthly visits", "Family-focused services", "Child-safe materials", "Flexible scheduling"],
-        serviceFrequency: "Bi-monthly", 
-        emergencyResponse: "4 hours"
+        description: "Family AMC Package"
+      },
+      "premium": {
+        annual: 2500,
+        quarterly: 625,
+        description: "Premium AMC Package"
       }
     },
-    
-    // Individual Services
     individualServices: {
+      "ac-service": {
+        price: 200,
+        description: "AC Service & Maintenance"
+      },
       "plumbing": {
         price: 150,
-        name: "Plumbing Services",
-        description: "Professional plumbing repairs and installations",
-        includes: ["Leak repairs", "Pipe installation", "Drain cleaning", "Basic inspection"]
-      },
-      "ac": {
-        price: 200,
-        name: "AC Services", 
-        description: "Air conditioning maintenance and repair",
-        includes: ["AC cleaning", "Filter replacement", "Gas refilling", "Performance check"]
-      },
-      "painting": {
-        price: 180,
-        name: "Painting Services",
-        description: "Professional interior and exterior painting",
-        includes: ["Wall preparation", "Premium paint", "Clean finish", "Touch-up warranty"]
+        description: "Plumbing Services"
       },
       "electrical": {
-        price: 120,
-        name: "Electrical Services",
-        description: "Electrical repairs and installations", 
-        includes: ["Wiring repairs", "Switch/outlet installation", "Safety inspection", "Circuit testing"]
+        price: 180,
+        description: "Electrical Services"
       },
-      "general": {
-        price: 100,
-        name: "General Maintenance",
-        description: "Basic maintenance and repair services",
-        includes: ["Minor repairs", "Maintenance check", "Basic cleaning", "Preventive care"]
+      "cleaning": {
+        price: 120,
+        description: "Deep Cleaning Service"
       }
     },
-    
-    // Pricing Rules
-    discounts: {
-      newResident: 0.30, // 30% discount for new residents
-      amc: 0.20,         // 20% discount for AMC customers
-      referral: 0.10     // 10% discount for referrals
-    },
-    
     surcharges: {
-      emergency: 100,    // AED 100 for same-day emergency service
-      weekend: 50,       // AED 50 for weekend service
-      afterHours: 75     // AED 75 for after-hours service
+      emergency: 100
     },
-    
-    // Payment Terms
-    installmentThreshold: 1000, // Minimum amount for installment
-    advancePayment: 0.30        // 30% advance for installments
+    installmentThreshold: 1000,
+    advancePayment: 0.30
   },
 
   // ============================================================================
@@ -260,12 +478,13 @@ export const siteConfig = {
   // WEBSITE SETTINGS
   // ============================================================================
   website: {
-    title: "ServDubai - Dubai's Premier Building Services",
-    description: "Professional building maintenance and property services for new apartment residents in Dubai. AMC packages, emergency repairs, and comprehensive building solutions.",
+    title: "ServDubai - Dubai's Premier Construction Finishing Specialists",
+    description: "Professional construction finishing services for newly constructed buildings in Dubai. We complete kitchen installations, bathroom finishing, flooring, woodwork, painting, and AC setup for developers and contractors.",
     keywords: [
-      "Dubai building services", "property maintenance Dubai", "AMC Dubai", 
-      "apartment services", "building management", "new resident services", 
-      "emergency repairs Dubai", "HVAC Dubai", "plumbing Dubai", "electrical services Dubai"
+      "construction finishing Dubai", "kitchen installation Dubai", "bathroom finishing Dubai", 
+      "flooring installation Dubai", "marble installation Dubai", "construction contractors Dubai", 
+      "building finishing services", "developer services Dubai", "construction specialists Dubai", 
+      "woodwork installation Dubai", "painting contractors Dubai", "AC installation Dubai"
     ],
     
     // Social Media
@@ -279,7 +498,8 @@ export const siteConfig = {
     
     // SEO Settings
     seo: {
-      ogImage: "/og-image.jpg",
+      ogImage: "/construction-finishing-dubai-og.jpg",
+      ogImageAlt: "ServDubai construction finishing specialists working on kitchen and bathroom installations in Dubai new buildings",
       favicon: "/favicon.svg",
       appleTouchIcon: "/apple-touch-icon.png"
     }
@@ -289,8 +509,8 @@ export const siteConfig = {
   // OPERATIONAL SETTINGS
   // ============================================================================
   operations: {
-    // Time Slots
-    timeSlots: [
+    // Site Visit Time Slots
+    siteVisitSlots: [
       { value: '08:00-10:00', label: '8:00 AM - 10:00 AM' },
       { value: '10:00-12:00', label: '10:00 AM - 12:00 PM' },
       { value: '12:00-14:00', label: '12:00 PM - 2:00 PM' },
@@ -299,25 +519,52 @@ export const siteConfig = {
       { value: '18:00-20:00', label: '6:00 PM - 8:00 PM' },
     ],
     
-    // Marketing Sources
+    // Project Contact Methods
+    contactMethods: [
+      { value: 'whatsapp', label: 'WhatsApp Consultation' },
+      { value: 'phone', label: 'Phone Call Discussion' },
+      { value: 'onsite', label: 'On-site Visit and Quote' },
+      { value: 'email', label: 'Email Project Details' }
+    ],
+    
+    // Best Contact Times
+    contactTimes: [
+      { value: 'morning', label: 'Morning (9AM-12PM)' },
+      { value: 'afternoon', label: 'Afternoon (12PM-5PM)' },
+      { value: 'evening', label: 'Evening (5PM-8PM)' },
+      { value: 'weekend', label: 'Weekend Availability Needed' }
+    ],
+    
+    // Marketing Sources for Construction Industry
     marketingSources: [
       { value: 'google', label: 'Google Search' },
-      { value: 'facebook', label: 'Facebook' },
-      { value: 'instagram', label: 'Instagram' },
+      { value: 'linkedin', label: 'LinkedIn' },
+      { value: 'developer-referral', label: 'Developer Referral' },
+      { value: 'contractor-referral', label: 'Contractor Referral' },
       { value: 'whatsapp', label: 'WhatsApp' },
-      { value: 'referral', label: 'Friend/Family Referral' },
       { value: 'website', label: 'Direct Website Visit' },
-      { value: 'flyer', label: 'Flyer/Advertisement' },
+      { value: 'construction-network', label: 'Construction Industry Network' },
       { value: 'other', label: 'Other' }
     ],
     
-    // Response Times  
+    // Response Times for Construction Projects
     responseTimes: {
-      bookingConfirmation: "2 hours",
-      emergencyResponse: "Same day",
-      regularService: "Within 1-2 days",
-      amcResponse: "Priority scheduling"
-    }
+      projectAssessment: "Within 4 hours",
+      siteVisitScheduling: "Same day",
+      projectQuote: "Within 24 hours",
+      contractResponse: "Priority scheduling"
+    },
+    
+    // Project Types
+    projectTypes: [
+      { value: 'kitchen', label: 'Kitchen Installation & Setup' },
+      { value: 'bathroom', label: 'Bathroom Finishing Work' },
+      { value: 'flooring', label: 'Flooring & Tiling' },
+      { value: 'woodwork', label: 'Custom Woodwork' },
+      { value: 'painting', label: 'Painting & Finishing' },
+      { value: 'ac', label: 'AC Installation' },
+      { value: 'complete', label: 'Complete Building Finishing' }
+    ]
   },
 
   // ============================================================================
@@ -326,13 +573,26 @@ export const siteConfig = {
   legal: {
     companyRegistration: "Trade License: 123456789",
     vatNumber: "VAT: 100123456789003",
-    insurance: "Fully insured and bonded",
+    insurance: "Fully insured and bonded for construction work",
     certifications: [
-      "Dubai Municipality Approved",
-      "DEWA Certified Contractors", 
-      "Safety Compliance Certified",
-      "Quality Management ISO 9001"
+      "Dubai Municipality Approved Contractor",
+      "DEWA Certified Installation Contractors", 
+      "Construction Safety Compliance Certified",
+      "Quality Management ISO 9001",
+      "Building Finishing Specialists License"
     ]
+  },
+
+  // ============================================================================
+  // CONSTRUCTION INDUSTRY STATS
+  // ============================================================================
+  stats: {
+    experience: "15+ Years",
+    specialists: "20+ Skilled Specialists",
+    buildingsCompleted: "500+ Buildings Completed",
+    projectsCompleted: "2000+ Projects Completed",
+    clientSatisfaction: "98% Client Satisfaction",
+    responseTime: "Same-Day Site Visits"
   }
 };
 
@@ -340,31 +600,42 @@ export const siteConfig = {
 export const getTeamMember = (name: string) => {
   const allTeam = [
     ...siteConfig.team.management,
-    ...siteConfig.team.technicalLeads,
-    ...siteConfig.team.customerService
+    ...siteConfig.team.constructionSpecialists,
+    ...siteConfig.team.projectCoordination
   ];
   return allTeam.find(member => member.name === name);
 };
 
-export const getServicePrice = (serviceType: string, packageType: string) => {
-  if (serviceType === 'newResident') {
-    return (siteConfig.pricing.newResidentPackages as any)[packageType]?.price || 0;
-  }
-  if (serviceType === 'amc') {
-    return (siteConfig.pricing.amcPackages as any)[packageType]?.annual || 0;
-  }
-  if (serviceType === 'individual') {
-    return (siteConfig.pricing.individualServices as any)[packageType]?.price || 0;
-  }
-  return 0;
+export const getConstructionService = (serviceId: string) => {
+  return (siteConfig.services.constructionFinishing as any)[serviceId] || null;
+};
+
+export const getConstructionPackage = (packageType: string) => {
+  return (siteConfig.packages.constructionPackages as any)[packageType] || null;
+};
+
+export const getConstructionContract = (contractType: string) => {
+  return (siteConfig.packages.constructionContracts as any)[contractType] || null;
 };
 
 export const formatPrice = (price: number): string => {
   return `AED ${price.toLocaleString()}`;
 };
 
-export const getWhatsAppLink = (message: string = "Hi ServDubai! I need assistance with building services.") => {
+export const formatPriceRange = (priceRange: [number, number]): string => {
+  if (priceRange[0] === 0 && priceRange[1] === 0) {
+    return "Custom Quote";
+  }
+  return `AED ${priceRange[0].toLocaleString()} - ${priceRange[1].toLocaleString()}`;
+};
+
+export const getWhatsAppLink = (message: string = "Hi ServDubai! I need assistance with construction finishing services.") => {
   return `https://wa.me/${siteConfig.business.whatsappNumber}?text=${encodeURIComponent(message)}`;
+};
+
+export const getProjectWhatsAppLink = (projectType: string, location: string = "") => {
+  const message = `Hi ServDubai! I need a quote for ${projectType} finishing work${location ? ` at ${location}` : ''}. Can we schedule a site visit?`;
+  return getWhatsAppLink(message);
 };
 
 export default siteConfig;

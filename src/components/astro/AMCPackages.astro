@@ -1,95 +1,83 @@
 ---
+import { siteConfig, formatPrice, getProjectWhatsAppLink } from '../../config/site.ts';
+
+const constructionContracts = siteConfig.packages.constructionContracts;
 ---
 
-<!-- AMC Packages Section -->
-<section id="amc-packages" class="section-padding bg-white">
+<!-- Construction Maintenance Contracts Section -->
+<section id="construction-contracts" class="section-padding bg-white">
   <div class="max-w-7xl mx-auto container-padding">
     <!-- Section Header -->
     <div class="text-center mb-16">
       <div class="inline-flex items-center px-4 py-2 bg-secondary-100 rounded-full text-secondary-700 font-medium mb-4">
         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
         </svg>
-        Annual Maintenance Contracts
+        Construction Maintenance Contracts
       </div>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Worry-Free
-        <span class="gradient-text">Annual Protection</span>
+        Ongoing Support for
+        <span class="gradient-text">Construction Projects</span>
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Protect your investment with our comprehensive Annual Maintenance Contracts. 
-        Regular checkups, priority support, and peace of mind for your Dubai apartment.
+        Comprehensive maintenance contracts for completed construction projects. 
+        Keep your buildings in perfect condition with regular inspections, touch-ups, and priority support.
       </p>
     </div>
 
-    <!-- AMC Package Cards -->
+    <!-- Construction Contract Cards -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
       
-      <!-- Basic AMC -->
+      <!-- Building Maintenance Contract -->
       <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-2">
         <div class="mb-6">
           <div class="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-700 rounded-2xl flex items-center justify-center mb-4">
             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">Basic AMC</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{constructionContracts["building-maintenance"].name}</h3>
           <div class="flex items-baseline mb-4">
-            <span class="text-4xl font-bold text-gray-700">AED 1,200</span>
+            <span class="text-4xl font-bold text-gray-700">{formatPrice(constructionContracts["building-maintenance"].annual)}</span>
             <span class="text-gray-500 ml-2">/year</span>
           </div>
-          <p class="text-gray-600 text-sm">Perfect for small apartments</p>
+          <p class="text-gray-600 text-sm">{constructionContracts["building-maintenance"].description}</p>
+          <div class="text-sm text-gray-600 font-medium mt-2">{constructionContracts["building-maintenance"].targetMarket}</div>
         </div>
 
         <div class="space-y-4 mb-8">
+          {constructionContracts["building-maintenance"].features.map((feature) => (
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">{feature}</span>
+            </div>
+          ))}
           <div class="flex items-center space-x-3">
             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span class="text-gray-700">4 AC checkups & filter changes annually</span>
+            <span class="text-gray-700">Service frequency: {constructionContracts["building-maintenance"].serviceFrequency}</span>
           </div>
           <div class="flex items-center space-x-3">
             <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span class="text-gray-700">Emergency plumbing repairs (up to AED 500)</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">General repairs (up to AED 300)</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Business hours support (8 AM - 6 PM)</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Quarterly apartment inspection</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">20% discount on additional services</span>
+            <span class="text-gray-700">Emergency response: {constructionContracts["building-maintenance"].emergencyResponse}</span>
           </div>
         </div>
 
-        <a href="/book?package=basic-amc" class="block w-full bg-gray-700 text-white font-bold py-4 px-6 rounded-xl text-center hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
-          Choose Basic AMC
+        <a href="/book?package=building-maintenance" class="block w-full bg-gray-700 text-white font-bold py-4 px-6 rounded-xl text-center hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+          Get Contract Quote
         </a>
       </div>
 
-      <!-- Premium AMC -->
+      <!-- Developer Support Contract -->
       <div class="bg-white rounded-3xl p-8 card-shadow border-2 border-primary-200 hover:border-primary-400 transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
-        <!-- Recommended Badge -->
+        <!-- Most Popular Badge -->
         <div class="absolute top-0 right-0 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
-          RECOMMENDED
+          MOST POPULAR
         </div>
         
         <div class="mb-6">
@@ -98,138 +86,96 @@
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">Premium AMC</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{constructionContracts["developer-support"].name}</h3>
           <div class="flex items-baseline mb-4">
-            <span class="text-4xl font-bold text-primary-600">AED 2,500</span>
+            <span class="text-4xl font-bold text-primary-600">{formatPrice(constructionContracts["developer-support"].annual)}</span>
             <span class="text-gray-500 ml-2">/year</span>
           </div>
-          <p class="text-primary-600 text-sm font-medium">Most comprehensive coverage</p>
+          <p class="text-gray-600 text-sm">{constructionContracts["developer-support"].description}</p>
+          <div class="text-sm text-primary-600 font-medium mt-2">{constructionContracts["developer-support"].targetMarket}</div>
         </div>
 
         <div class="space-y-4 mb-8">
+          {constructionContracts["developer-support"].features.map((feature) => (
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">{feature}</span>
+            </div>
+          ))}
           <div class="flex items-center space-x-3">
             <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span class="text-gray-700"><strong>24/7 support</strong> & emergency response</span>
+            <span class="text-gray-700">Service frequency: {constructionContracts["developer-support"].serviceFrequency}</span>
           </div>
           <div class="flex items-center space-x-3">
             <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span class="text-gray-700"><strong>Unlimited visits</strong> for covered services</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Monthly AC maintenance & deep cleaning</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Emergency repairs (up to AED 1,500)</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700"><strong>Priority scheduling</strong> within 2 hours</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">30% discount on major renovations</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Dedicated account manager</span>
+            <span class="text-gray-700">Emergency response: {constructionContracts["developer-support"].emergencyResponse}</span>
           </div>
         </div>
 
-        <a href="/book?package=premium-amc" class="block w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold py-4 px-6 rounded-xl text-center hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 transform hover:scale-105">
-          Choose Premium AMC
+        <a href="/book?package=developer-support" class="block w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold py-4 px-6 rounded-xl text-center hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 transform hover:scale-105">
+          Get Developer Contract
         </a>
       </div>
 
-      <!-- Family AMC -->
+      <!-- Contractor Partnership -->
       <div class="bg-gradient-to-br from-secondary-50 to-accent-50 rounded-3xl p-8 border border-secondary-200 hover:border-secondary-400 transition-all duration-300 transform hover:-translate-y-2">
         <div class="mb-6">
           <div class="w-16 h-16 bg-gradient-to-r from-secondary-500 to-accent-500 rounded-2xl flex items-center justify-center mb-4">
             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h3v7H5v-3H4zm3-7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM16.5 17c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM12.5 11.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"/>
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">Family AMC</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{constructionContracts["contractor-partnership"].name}</h3>
           <div class="flex items-baseline mb-4">
-            <span class="text-4xl font-bold text-secondary-600">AED 1,800</span>
+            <span class="text-4xl font-bold text-secondary-600">{formatPrice(constructionContracts["contractor-partnership"].annual)}</span>
             <span class="text-gray-500 ml-2">/year</span>
           </div>
-          <p class="text-secondary-600 text-sm font-medium">Perfect for families with children</p>
+          <p class="text-gray-600 text-sm">{constructionContracts["contractor-partnership"].description}</p>
+          <div class="text-sm text-secondary-600 font-medium mt-2">{constructionContracts["contractor-partnership"].targetMarket}</div>
         </div>
 
         <div class="space-y-4 mb-8">
+          {constructionContracts["contractor-partnership"].features.map((feature) => (
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">{feature}</span>
+            </div>
+          ))}
           <div class="flex items-center space-x-3">
             <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span class="text-gray-700">6 AC checkups per year (deep clean)</span>
+            <span class="text-gray-700">Service frequency: {constructionContracts["contractor-partnership"].serviceFrequency}</span>
           </div>
           <div class="flex items-center space-x-3">
             <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span class="text-gray-700">Child-safe repairs & maintenance</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Emergency repairs (up to AED 800)</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Extended hours support (7 AM - 9 PM)</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Bi-monthly safety inspections</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">Family emergency contacts</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700">25% discount on additional services</span>
+            <span class="text-gray-700">Emergency response: {constructionContracts["contractor-partnership"].emergencyResponse}</span>
           </div>
         </div>
 
-        <a href="/book?package=family-amc" class="block w-full bg-secondary-600 text-white font-bold py-4 px-6 rounded-xl text-center hover:bg-secondary-700 transition-all duration-300 transform hover:scale-105">
-          Choose Family AMC
+        <a href="/book?package=contractor-partnership" class="block w-full bg-secondary-600 text-white font-bold py-4 px-6 rounded-xl text-center hover:bg-secondary-700 transition-all duration-300 transform hover:scale-105">
+          Join Partnership Program
         </a>
       </div>
     </div>
 
-    <!-- AMC Benefits -->
+    <!-- Construction Contract Benefits -->
     <div class="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-3xl p-8 text-white mb-16">
       <div class="text-center mb-8">
-        <h3 class="text-3xl font-bold mb-4">Why Choose Our AMC Plans?</h3>
+        <h3 class="text-3xl font-bold mb-4">Why Choose Our Construction Maintenance Contracts?</h3>
         <p class="text-primary-100 text-lg max-w-2xl mx-auto">
-          Annual Maintenance Contracts provide consistent care for your apartment, 
-          ensuring optimal performance and preventing costly emergency repairs.
+          Construction maintenance contracts ensure your completed projects stay in perfect condition, 
+          protecting your investment and maintaining quality standards for years to come.
         </p>
       </div>
 
@@ -240,8 +186,8 @@
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
             </svg>
           </div>
-          <h4 class="font-bold mb-2">Cost Savings</h4>
-          <p class="text-primary-100 text-sm">Save up to 40% compared to individual service calls</p>
+          <h4 class="font-bold mb-2">Project Protection</h4>
+          <p class="text-primary-100 text-sm">Protect your construction investment with ongoing maintenance</p>
         </div>
 
         <div class="text-center">
@@ -250,8 +196,8 @@
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
           </div>
-          <h4 class="font-bold mb-2">Priority Service</h4>
-          <p class="text-primary-100 text-sm">AMC customers get first priority for all bookings</p>
+          <h4 class="font-bold mb-2">Priority Response</h4>
+          <p class="text-primary-100 text-sm">Contract customers get priority scheduling and emergency response</p>
         </div>
 
         <div class="text-center">
@@ -260,8 +206,8 @@
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
             </svg>
           </div>
-          <h4 class="font-bold mb-2">Preventive Care</h4>
-          <p class="text-primary-100 text-sm">Regular maintenance prevents major breakdowns</p>
+          <h4 class="font-bold mb-2">Quality Assurance</h4>
+          <p class="text-primary-100 text-sm">Regular inspections maintain construction quality standards</p>
         </div>
 
         <div class="text-center">
@@ -270,46 +216,59 @@
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h4 class="font-bold mb-2">Peace of Mind</h4>
-          <p class="text-primary-100 text-sm">Know your apartment is always in expert hands</p>
+          <h4 class="font-bold mb-2">Cost Efficiency</h4>
+          <p class="text-primary-100 text-sm">Bulk pricing and preventive maintenance reduce overall costs</p>
         </div>
       </div>
     </div>
 
-    <!-- Payment Options -->
+    <!-- Contract Terms & Benefits -->
     <div class="bg-gray-50 rounded-3xl p-8 text-center">
       <h3 class="text-2xl font-bold text-gray-900 mb-4">
-        Flexible Payment Options Available
+        Flexible Contract Terms for Construction Industry
       </h3>
       <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-        We understand that moving to Dubai involves many expenses. That's why we offer flexible payment plans 
-        to make our AMC packages accessible to all new residents.
+        Our construction maintenance contracts are designed to work with your project timelines and business needs. 
+        Flexible payment terms and scalable service levels for projects of any size.
       </p>
-      <div class="flex flex-wrap justify-center gap-6 text-sm">
-        <div class="flex items-center space-x-2">
-          <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+        <div class="flex flex-col items-center space-y-2">
+          <svg class="w-8 h-8 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          <span>30% advance payment</span>
+          <span class="font-medium">Milestone-based payments</span>
+          <span class="text-gray-500">Pay as projects complete</span>
         </div>
-        <div class="flex items-center space-x-2">
-          <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+        <div class="flex flex-col items-center space-y-2">
+          <svg class="w-8 h-8 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          <span>Balance in 3 installments</span>
+          <span class="font-medium">Quarterly payment options</span>
+          <span class="text-gray-500">Spread costs throughout the year</span>
         </div>
-        <div class="flex items-center space-x-2">
-          <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+        <div class="flex flex-col items-center space-y-2">
+          <svg class="w-8 h-8 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          <span>No interest charges</span>
+          <span class="font-medium">Bulk project discounts</span>
+          <span class="text-gray-500">Better rates for multiple buildings</span>
         </div>
-        <div class="flex items-center space-x-2">
-          <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+        <div class="flex flex-col items-center space-y-2">
+          <svg class="w-8 h-8 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          <span>All major cards accepted</span>
+          <span class="font-medium">Corporate invoicing</span>
+          <span class="text-gray-500">Professional B2B billing</span>
         </div>
+      </div>
+      
+      <div class="mt-8">
+        <a href={getProjectWhatsAppLink("construction maintenance contract")} target="_blank" class="bg-primary-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-primary-700 transition-colors inline-flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+          </svg>
+          Discuss Contract Terms
+        </a>
       </div>
     </div>
   </div>

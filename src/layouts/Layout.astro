@@ -20,6 +20,8 @@ const {
   schemaType = 'WebPage',
 } = Astro.props;
 
+const imageAlt = siteConfig.website.seo.ogImageAlt || title;
+
 const canonicalURL = canonical || Astro.url.href;
 const siteUrl = import.meta.env.SITE_URL || siteConfig.business.website;
 
@@ -44,45 +46,67 @@ const organizationSchema = {
     "longitude": siteConfig.business.address.coordinates.longitude
   },
   "openingHours": siteConfig.business.hours.regular,
-  "priceRange": "AED 100 - AED 2500",
+  "priceRange": "AED 800 - AED 15000",
   "serviceArea": {
     "@type": "City",
     "name": siteConfig.business.address.city
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Building Services",
+    "name": "Construction Finishing Services",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "HVAC Services",
-          "description": "Air conditioning installation, maintenance, and repair"
+          "name": "Kitchen Finishing Projects",
+          "description": "Complete kitchen installations including cabinets, countertops, appliances, and connections for new buildings",
+          "priceRange": "AED 2500+"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Plumbing Services",
-          "description": "Plumbing repairs, installations, and emergency services"
+          "name": "Bathroom Construction Completion",
+          "description": "Professional bathroom finishing including fixture installation, tiling, marble work, and plumbing connections",
+          "priceRange": "AED 1800+"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Electrical Services",
-          "description": "Electrical repairs, installations, and safety inspections"
+          "name": "Flooring & Tiling Specialists",
+          "description": "Expert marble, granite, and tile installation for new buildings",
+          "priceRange": "AED 80+ per sqm"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AMC Packages",
-          "description": "Annual maintenance contracts for comprehensive building care"
+          "name": "Custom Woodwork & Carpentry",
+          "description": "Built-in wardrobes, custom cabinets, and wooden installations for new apartments",
+          "priceRange": "AED 1200+"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Building Painting & Finishing",
+          "description": "Complete interior and exterior painting services for new constructions",
+          "priceRange": "AED 25+ per sqm"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AC Installation & Setup",
+          "description": "Professional air conditioning installation and setup for new buildings",
+          "priceRange": "AED 800+"
         }
       }
     ]
@@ -102,9 +126,74 @@ const webPageSchema = {
   },
   "about": {
     "@type": "Thing",
-    "name": "Building Maintenance Services Dubai"
+    "name": "Construction Finishing Services Dubai"
   },
   "provider": organizationSchema
+};
+
+// Additional Construction Industry Schema
+const constructionServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ServDubai Construction Finishing Services",
+  "description": "Professional construction finishing services for newly constructed buildings in Dubai including kitchen installations, bathroom finishing, flooring, woodwork, painting, and AC setup.",
+  "url": siteUrl,
+  "telephone": siteConfig.business.phone,
+  "email": siteConfig.business.email,
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": siteConfig.business.address.countryCode,
+    "addressRegion": siteConfig.business.address.region,
+    "addressLocality": siteConfig.business.address.city
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Dubai",
+      "addressCountry": "AE"
+    }
+  ],
+  "serviceType": [
+    "Kitchen Installation",
+    "Bathroom Finishing", 
+    "Flooring Installation",
+    "Marble Installation",
+    "Tile Installation",
+    "Woodwork & Carpentry",
+    "Painting & Finishing",
+    "AC Installation",
+    "Construction Project Management"
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": [
+      "Construction Companies",
+      "Real Estate Developers",
+      "Building Contractors", 
+      "Property Management Companies",
+      "Building Owners"
+    ]
+  },
+  "priceRange": "AED 800 - AED 15000",
+  "paymentAccepted": ["Cash", "Bank Transfer", "Cheque"],
+  "currenciesAccepted": "AED",
+  "availableLanguage": ["English", "Arabic", "Hindi", "Urdu"],
+  "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "08:00",
+    "closes": "20:00"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Professional License",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Dubai Municipality"
+      }
+    }
+  ]
 };
 ---
 
@@ -156,7 +245,7 @@ const webPageSchema = {
     <meta property="og:image" content={new URL(image, siteUrl).href} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content={siteConfig.business.name} />
@@ -191,6 +280,7 @@ const webPageSchema = {
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
     <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(constructionServiceSchema)}></script>
     
     <!-- Styles -->
     
@@ -282,11 +372,11 @@ const webPageSchema = {
     
     <!-- WhatsApp Widget -->
     <a 
-      href={`https://wa.me/${siteConfig.business.whatsappNumber}?text=Hi%20${encodeURIComponent(siteConfig.business.name)}!%20I%20need%20assistance%20with%20building%20services.`}
+      href={`https://wa.me/${siteConfig.business.whatsappNumber}?text=Hi%20${encodeURIComponent(siteConfig.business.name)}!%20I%20need%20assistance%20with%20construction%20finishing%20services.`}
       class="whatsapp-widget" 
       target="_blank" 
       rel="noopener noreferrer"
-      aria-label="Contact us on WhatsApp"
+      aria-label="Contact us on WhatsApp for construction finishing services"
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.9 3.297"/>

@@ -1,0 +1,282 @@
+---
+import { siteConfig, formatPriceRange, getProjectWhatsAppLink } from '../../config/site.ts';
+
+const constructionPackages = siteConfig.packages.constructionPackages;
+---
+
+<!-- Construction Packages Section -->
+<section id="construction-packages" class="section-padding bg-gradient-to-br from-primary-50 to-secondary-50">
+  <div class="max-w-7xl mx-auto container-padding">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center px-4 py-2 bg-primary-100 rounded-full text-primary-700 font-medium mb-4">
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+        </svg>
+        B2B Construction Packages
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Professional Packages for 
+        <span class="gradient-text">Construction Industry</span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Comprehensive finishing solutions designed for developers, contractors, and construction companies. 
+        Bulk pricing available for multiple units and large-scale projects.
+      </p>
+    </div>
+
+    <!-- Package Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
+      
+      <!-- New Building Package -->
+      <div class="bg-white rounded-3xl p-8 card-shadow border-2 border-primary-200 hover:border-primary-400 transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden flex flex-col h-full">
+        <!-- Most Popular Badge -->
+        <div class="absolute top-0 right-0 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
+          MOST POPULAR
+        </div>
+        
+        <div class="mb-6">
+          <div class="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{constructionPackages["new-building-package"].name}</h3>
+          <div class="flex items-baseline mb-4">
+            <span class="text-3xl font-bold text-primary-600">{formatPriceRange(constructionPackages["new-building-package"].priceRange)}</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-2">{constructionPackages["new-building-package"].targetMarket}</p>
+        </div>
+
+        <div class="space-y-4 mb-8 flex-grow">
+          <p class="text-gray-700 font-medium mb-4">{constructionPackages["new-building-package"].description}</p>
+          {constructionPackages["new-building-package"].features.map((feature) => (
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">{feature}</span>
+            </div>
+          ))}
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-gray-700">Duration: {constructionPackages["new-building-package"].duration}</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-gray-700">Warranty: {constructionPackages["new-building-package"].warranty}</span>
+          </div>
+        </div>
+
+        <a href="/book?package=new-building" class="block w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold py-4 px-6 rounded-xl text-center hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 transform hover:scale-105 mt-auto">
+          Get Project Quote
+        </a>
+      </div>
+
+      <!-- Kitchen & Bathroom Combo -->
+      <div class="bg-white rounded-3xl p-8 card-shadow border border-gray-200 hover:border-secondary-300 transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
+        <div class="mb-6">
+          <div class="w-16 h-16 bg-gradient-to-r from-secondary-500 to-accent-500 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{constructionPackages["kitchen-bathroom-combo"].name}</h3>
+          <div class="flex items-baseline mb-4">
+            <span class="text-3xl font-bold text-secondary-600">{formatPriceRange(constructionPackages["kitchen-bathroom-combo"].priceRange)}</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-2">{constructionPackages["kitchen-bathroom-combo"].targetMarket}</p>
+        </div>
+
+        <div class="space-y-4 mb-8 flex-grow">
+          <p class="text-gray-700 font-medium mb-4">{constructionPackages["kitchen-bathroom-combo"].description}</p>
+          {constructionPackages["kitchen-bathroom-combo"].features.map((feature) => (
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">{feature}</span>
+            </div>
+          ))}
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-gray-700">Duration: {constructionPackages["kitchen-bathroom-combo"].duration}</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-gray-700">Warranty: {constructionPackages["kitchen-bathroom-combo"].warranty}</span>
+          </div>
+        </div>
+
+        <a href="/book?package=kitchen-bathroom" class="block w-full bg-secondary-600 text-white font-bold py-4 px-6 rounded-xl text-center hover:bg-secondary-700 transition-all duration-300 transform hover:scale-105 mt-auto">
+          Schedule Site Visit
+        </a>
+      </div>
+
+      <!-- Flooring Specialist Package -->
+      <div class="bg-white rounded-3xl p-8 card-shadow border border-gray-200 hover:border-accent-300 transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
+        <div class="mb-6">
+          <div class="w-16 h-16 bg-gradient-to-r from-accent-500 to-primary-500 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{constructionPackages["flooring-specialist"].name}</h3>
+          <div class="flex items-baseline mb-4">
+            <span class="text-3xl font-bold text-accent-600">{formatPriceRange(constructionPackages["flooring-specialist"].priceRange)}</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-2">{constructionPackages["flooring-specialist"].targetMarket}</p>
+        </div>
+
+        <div class="space-y-4 mb-8 flex-grow">
+          <p class="text-gray-700 font-medium mb-4">{constructionPackages["flooring-specialist"].description}</p>
+          {constructionPackages["flooring-specialist"].features.map((feature) => (
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">{feature}</span>
+            </div>
+          ))}
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-gray-700">Duration: {constructionPackages["flooring-specialist"].duration}</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-gray-700">Warranty: {constructionPackages["flooring-specialist"].warranty}</span>
+          </div>
+        </div>
+
+        <a href="/book?package=flooring-specialist" class="block w-full bg-accent-600 text-white font-bold py-4 px-6 rounded-xl text-center hover:bg-accent-700 transition-all duration-300 transform hover:scale-105 mt-auto">
+          Get Flooring Quote
+        </a>
+      </div>
+
+      <!-- Custom Project Quotes -->
+      <div class="bg-white rounded-3xl p-8 card-shadow border border-gray-200 hover:border-primary-300 transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden flex flex-col h-full">
+        <!-- Enterprise Badge -->
+        <div class="absolute top-0 right-0 bg-gradient-to-r from-gray-600 to-gray-800 text-white px-4 py-2 rounded-bl-2xl font-bold text-xs">
+          ENTERPRISE
+        </div>
+        
+        <div class="mb-6">
+          <div class="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-800 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 11H7v8h2v-8zm4 0h-2v8h2v-8zm4 0h-2v8h2v-8zm2.5-5H18V4l-1-1H7L6 4v2H3.5L3 7v1h18V7l-.5-1zM8 5h8v1H8V5z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{constructionPackages["custom-project-quotes"].name}</h3>
+          <div class="flex items-baseline mb-4">
+            <span class="text-3xl font-bold text-gray-700">Custom Quote</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-2">{constructionPackages["custom-project-quotes"].targetMarket}</p>
+        </div>
+
+        <div class="space-y-4 mb-8 flex-grow">
+          <p class="text-gray-700 font-medium mb-4">{constructionPackages["custom-project-quotes"].description}</p>
+          {constructionPackages["custom-project-quotes"].features.map((feature) => (
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-gray-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">{feature}</span>
+            </div>
+          ))}
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-gray-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-gray-700">Duration: {constructionPackages["custom-project-quotes"].duration}</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-gray-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-gray-700">Warranty: {constructionPackages["custom-project-quotes"].warranty}</span>
+          </div>
+        </div>
+
+        <a href="/contact" class="block w-full bg-gray-700 text-white font-bold py-4 px-6 rounded-xl text-center hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 mt-auto">
+          Request Custom Quote
+        </a>
+      </div>
+    </div>
+
+    <!-- Bulk Pricing Information -->
+    <div class="bg-white rounded-3xl p-8 card-shadow mb-16">
+      <div class="text-center mb-8">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">
+          Bulk Pricing for Developers & Contractors
+        </h3>
+        <p class="text-gray-600 max-w-3xl mx-auto">
+          Special pricing available for multiple units and large-scale construction projects. 
+          The more units you need finished, the better the rates we can offer.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-white">5+</span>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-2">5-19 Units</h4>
+          <p class="text-green-600 font-bold text-lg mb-2">15% Discount</p>
+          <p class="text-gray-600">Perfect for small to medium developments</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-white">20+</span>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-2">20-49 Units</h4>
+          <p class="text-blue-600 font-bold text-lg mb-2">20% Discount</p>
+          <p class="text-gray-600">Ideal for large residential projects</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-white">50+</span>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-2">50+ Units</h4>
+          <p class="text-purple-600 font-bold text-lg mb-2">Custom Pricing</p>
+          <p class="text-gray-600">Enterprise solutions for major developments</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center bg-white rounded-3xl p-8 card-shadow">
+      <h3 class="text-2xl font-bold text-gray-900 mb-4">
+        Ready to discuss your construction finishing project?
+      </h3>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        Our construction specialists will assess your project requirements and provide a detailed quote 
+        tailored to your timeline and budget. Free site visits for all construction industry clients.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={getProjectWhatsAppLink("construction finishing")} target="_blank" class="bg-green-500 text-white font-bold py-3 px-8 rounded-xl hover:bg-green-600 transition-colors flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+          </svg>
+          WhatsApp Project Discussion
+        </a>
+        <a href="/contact" class="border-2 border-primary-500 text-primary-600 font-bold py-3 px-8 rounded-xl hover:bg-primary-50 transition-colors">
+          Schedule Free Site Visit
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
