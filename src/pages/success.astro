@@ -1,0 +1,266 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/astro/Navigation.astro';
+import Footer from '../components/astro/Footer.astro';
+---
+
+<Layout title="Booking Confirmed - ServDubai" description="Your service booking has been confirmed. Our team will contact you within 2 hours to schedule your appointment.">
+  <Navigation />
+  
+  <!-- Success Content -->
+  <section class="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-20">
+    <div class="max-w-4xl mx-auto container-padding">
+      
+      <!-- Success Animation -->
+      <div class="text-center mb-12">
+        <div class="inline-block relative">
+          <div class="w-32 h-32 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+            <svg class="w-16 h-16 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full animate-bounce"></div>
+        </div>
+        
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+          Booking Confirmed! ✅
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Thank you for choosing ServDubai. Your service request has been received and confirmed.
+        </p>
+      </div>
+
+      <!-- Booking Details -->
+      <div class="bg-white rounded-xl p-8 card-shadow mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">What Happens Next?</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Step 1 -->
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-blue-600">1</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Confirmation Call</h3>
+            <p class="text-gray-600 text-sm">
+              Our team will call you within <strong>2 hours</strong> to confirm details and schedule your appointment.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-blue-600">2</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Technician Assignment</h3>
+            <p class="text-gray-600 text-sm">
+              We'll assign the best qualified technician for your specific service needs.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-blue-600">3</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Service Completion</h3>
+            <p class="text-gray-600 text-sm">
+              Quality service delivery with warranty and follow-up support included.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Service Details -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        
+        <!-- Booking Summary -->
+        <div class="bg-white rounded-xl p-6 card-shadow">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Your Booking Summary</h3>
+          
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-gray-600">Booking ID:</span>
+              <span class="font-medium text-gray-900" id="bookingId">SRV-2024-0001</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Service Type:</span>
+              <span class="font-medium text-gray-900" id="serviceType">AC Maintenance</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Priority:</span>
+              <span class="font-medium text-green-600" id="priority">Normal</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Estimated Cost:</span>
+              <span class="font-medium text-gray-900" id="estimatedCost">AED 150 - 250</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Date Requested:</span>
+              <span class="font-medium text-gray-900" id="dateRequested">Today</span>
+            </div>
+          </div>
+          
+          <div class="mt-6 p-4 bg-green-50 rounded-lg">
+            <p class="text-sm text-green-800">
+              <strong>New Resident Discount Applied:</strong> You're eligible for up to 30% off your first service!
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="bg-white rounded-xl p-6 card-shadow">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Need to Modify Your Booking?</h3>
+          
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-900">Call Us</p>
+                <p class="text-sm text-gray-600">+971 50 123 4567</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.9 3.297"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-900">WhatsApp</p>
+                <p class="text-sm text-gray-600">Quick support & updates</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-900">Email</p>
+                <p class="text-sm text-gray-600">info@servdubai.com</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-6">
+            <a href="https://wa.me/971501234567?text=Hi%2C%20I%20need%20to%20modify%20my%20booking%20SRV-2024-0001" 
+               class="block w-full bg-green-600 text-white text-center py-3 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
+              Contact on WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Additional Services -->
+      <div class="bg-white rounded-xl p-8 card-shadow mb-8">
+        <h3 class="text-xl font-semibold text-gray-900 mb-6">While You Wait, Explore Our Other Services</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- AMC Package -->
+          <div class="border border-gray-200 rounded-lg p-4 hover:border-primary-300 transition-colors">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h4 class="font-semibold text-gray-900 mb-2">AMC Packages</h4>
+            <p class="text-sm text-gray-600 mb-3">Save up to 40% with annual maintenance contracts</p>
+            <a href="/packages" class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+              View Packages →
+            </a>
+          </div>
+
+          <!-- Emergency Service -->
+          <div class="border border-gray-200 rounded-lg p-4 hover:border-primary-300 transition-colors">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 8h2a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2V7a6 6 0 1 1 12 0v1zM8 8h8V7a4 4 0 1 0-8 0v1zm2 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+              </svg>
+            </div>
+            <h4 class="font-semibold text-gray-900 mb-2">24/7 Emergency</h4>
+            <p class="text-sm text-gray-600 mb-3">Round-the-clock emergency repair services</p>
+            <a href="tel:+971501234567" class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+              Call Now →
+            </a>
+          </div>
+
+          <!-- Quote Request -->
+          <div class="border border-gray-200 rounded-lg p-4 hover:border-primary-300 transition-colors">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+              </svg>
+            </div>
+            <h4 class="font-semibold text-gray-900 mb-2">Free Quote</h4>
+            <p class="text-sm text-gray-600 mb-3">Get detailed estimates for larger projects</p>
+            <a href="/contact" class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+              Request Quote →
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="text-center">
+        <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+          <a href="/" class="block sm:inline-block bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors">
+            Return to Home
+          </a>
+          <a href="/services" class="block sm:inline-block bg-white text-primary-600 border border-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors">
+            Browse All Services
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Parse URL parameters to populate booking details
+  document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Update booking details if provided
+    const bookingId = urlParams.get('id') || 'SRV-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 9999) + 1).padStart(4, '0');
+    const serviceType = urlParams.get('service') || 'General Maintenance';
+    const priority = urlParams.get('priority') || 'Normal';
+    const cost = urlParams.get('cost') || 'AED 150 - 250';
+    
+    // Update elements
+    const bookingIdEl = document.getElementById('bookingId');
+    const serviceTypeEl = document.getElementById('serviceType');
+    const priorityEl = document.getElementById('priority');
+    const costEl = document.getElementById('estimatedCost');
+    const dateEl = document.getElementById('dateRequested');
+    
+    if (bookingIdEl) bookingIdEl.textContent = bookingId;
+    if (serviceTypeEl) serviceTypeEl.textContent = serviceType;
+    if (priorityEl) priorityEl.textContent = priority;
+    if (costEl) costEl.textContent = cost;
+    if (dateEl) dateEl.textContent = new Date().toLocaleDateString('en-AE');
+    
+    // Update WhatsApp links with booking ID
+    const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+    whatsappLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.includes('booking')) {
+        link.setAttribute('href', href.replace('SRV-2024-0001', bookingId));
+      }
+    });
+  });
+</script>

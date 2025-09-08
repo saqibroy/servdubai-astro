@@ -1,0 +1,36 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://servdubai.netlify.app/sitemap.xml
+
+# Disallow development files
+Disallow: /src/
+Disallow: /.netlify/
+Disallow: /node_modules/
+Disallow: /.env*
+Disallow: /dist/
+
+# Allow important pages
+Allow: /
+Allow: /services
+Allow: /packages
+Allow: /book
+Allow: /contact
+Allow: /about
+Allow: /success
+Allow: /privacy
+Allow: /terms
+
+# Crawl-delay (optional, in seconds)
+Crawl-delay: 1
+
+# Block common spam bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

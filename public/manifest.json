@@ -1,0 +1,48 @@
+{
+  "name": "ServDubai - Building Services",
+  "short_name": "ServDubai",
+  "description": "Professional building maintenance and property services in Dubai",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d9488",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["utilities", "business", "productivity"],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Service",
+      "short_name": "Book",
+      "description": "Book a building service",
+      "url": "/book"
+    },
+    {
+      "name": "Emergency Contact",
+      "short_name": "Emergency", 
+      "description": "Contact for emergency services",
+      "url": "/contact"
+    },
+    {
+      "name": "WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Contact via WhatsApp",
+      "url": "/contact"
+    }
+  ]
+}

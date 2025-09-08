@@ -1,0 +1,300 @@
+---
+import siteConfig from '../config/site';
+import '../styles/globals.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  noindex?: boolean;
+  schemaType?: 'WebPage' | 'Service' | 'Organization' | 'FAQPage';
+}
+
+const {
+  title = siteConfig.website.title,
+  description = siteConfig.website.description,
+  image = siteConfig.website.seo.ogImage,
+  canonical,
+  noindex = false,
+  schemaType = 'WebPage',
+} = Astro.props;
+
+const canonicalURL = canonical || Astro.url.href;
+const siteUrl = import.meta.env.SITE_URL || siteConfig.business.website;
+
+// Generate schema markup using config
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": siteConfig.business.name,
+  "description": siteConfig.business.description,
+  "url": siteUrl,
+  "telephone": siteConfig.business.phone,
+  "email": siteConfig.business.email,
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": siteConfig.business.address.countryCode,
+    "addressRegion": siteConfig.business.address.region,
+    "addressLocality": siteConfig.business.address.city
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": siteConfig.business.address.coordinates.latitude,
+    "longitude": siteConfig.business.address.coordinates.longitude
+  },
+  "openingHours": siteConfig.business.hours.regular,
+  "priceRange": "AED 100 - AED 2500",
+  "serviceArea": {
+    "@type": "City",
+    "name": siteConfig.business.address.city
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Building Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "HVAC Services",
+          "description": "Air conditioning installation, maintenance, and repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Plumbing Services",
+          "description": "Plumbing repairs, installations, and emergency services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Electrical Services",
+          "description": "Electrical repairs, installations, and safety inspections"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AMC Packages",
+          "description": "Annual maintenance contracts for comprehensive building care"
+        }
+      }
+    ]
+  }
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": schemaType,
+  "name": title,
+  "description": description,
+  "url": canonicalURL,
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "ServDubai",
+    "url": siteUrl
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Building Maintenance Services Dubai"
+  },
+  "provider": organizationSchema
+};
+---
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#0d9488" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={siteConfig.website.keywords.join(', ')} />
+    <meta name="author" content={siteConfig.business.name} />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Geo Meta Tags -->
+    <meta name="geo.region" content={`${siteConfig.business.address.countryCode}-${siteConfig.business.address.region.substring(0,2).toUpperCase()}`} />
+    <meta name="geo.placename" content={siteConfig.business.address.city} />
+    <meta name="geo.position" content={`${siteConfig.business.address.coordinates.latitude};${siteConfig.business.address.coordinates.longitude}`} />
+    <meta name="ICBM" content={`${siteConfig.business.address.coordinates.latitude}, ${siteConfig.business.address.coordinates.longitude}`} />
+    
+    <!-- Language and Locale -->
+    <meta name="language" content="English" />
+    <meta property="og:locale" content="en_AE" />
+    <meta property="og:locale:alternate" content="ar_AE" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, siteUrl).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={siteConfig.business.name} />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, siteUrl).href} />
+    <meta name="twitter:image:alt" content={title} />
+    <meta name="twitter:creator" content={`@${siteConfig.business.name}`} />
+    <meta name="twitter:site" content={`@${siteConfig.business.name}`} />
+    
+    <!-- Business Information -->
+    <meta name="business:contact_data:street_address" content={siteConfig.business.address.street} />
+    <meta name="business:contact_data:locality" content={siteConfig.business.address.city} />
+    <meta name="business:contact_data:region" content={siteConfig.business.address.region} />
+    <meta name="business:contact_data:postal_code" content="" />
+    <meta name="business:contact_data:country_name" content={siteConfig.business.address.country} />
+    <meta name="business:contact_data:phone_number" content={siteConfig.business.phone} />
+    <meta name="business:contact_data:email" content={siteConfig.business.email} />
+    
+    <!-- Fonts - Preload for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="//wa.me" />
+    <link rel="dns-prefetch" href="//api.whatsapp.com" />
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)}></script>
+    
+    <!-- Styles -->
+    
+    <!-- Critical CSS Inline -->
+    <style>
+      /* Critical CSS for above-the-fold content */
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Prevent flash of unstyled content */
+      html {
+        visibility: hidden;
+        opacity: 0;
+      }
+      
+      html.fonts-loaded {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+      
+      /* Loading optimization */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* WhatsApp widget styles */
+      .whatsapp-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: #25d366;
+        border-radius: 50px;
+        padding: 12px 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+      }
+      
+      .whatsapp-widget:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      }
+      
+      @media (max-width: 768px) {
+        .whatsapp-widget {
+          bottom: 15px;
+          right: 15px;
+          padding: 10px 14px;
+        }
+      }
+    </style>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      // Service Worker registration (only in production)
+      if ('serviceWorker' in navigator && import.meta.env.PROD) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => console.log('SW registered'))
+            .catch(error => console.log('SW registration failed'));
+        });
+      }
+      
+      // Font loading optimization
+      document.documentElement.classList.add('fonts-loaded');
+      
+      // Performance monitoring
+      window.addEventListener('load', () => {
+        if ('performance' in window && performance.timing) {
+          const navigationStart = performance.timing.navigationStart;
+          const loadEventEnd = performance.timing.loadEventEnd;
+          
+          if (navigationStart && loadEventEnd && loadEventEnd > navigationStart) {
+            const loadTime = loadEventEnd - navigationStart;
+            console.log('Page load time:', loadTime + 'ms');
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <slot />
+    
+    <!-- WhatsApp Widget -->
+    <a 
+      href={`https://wa.me/${siteConfig.business.whatsappNumber}?text=Hi%20${encodeURIComponent(siteConfig.business.name)}!%20I%20need%20assistance%20with%20building%20services.`}
+      class="whatsapp-widget" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      aria-label="Contact us on WhatsApp"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.9 3.297"/>
+      </svg>
+      <span style="margin-left: 8px; color: white; font-weight: 500; font-size: 14px;">Chat</span>
+    </a>
+    
+    <!-- Analytics - Add your analytics code here -->
+    <!-- Google Analytics, Facebook Pixel, etc. -->
+  </body>
+</html>

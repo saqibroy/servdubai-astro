@@ -1,0 +1,611 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/astro/Navigation.astro';
+import Footer from '../components/astro/Footer.astro';
+---
+
+<Layout title="AMC Packages - ServDubai" description="Annual Maintenance Contract packages for building services in Dubai. Choose from Basic, Premium, or Enterprise AMC plans.">
+  <Navigation />
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
+    <div class="max-w-7xl mx-auto container-padding">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-text-600 mb-6">
+          Never worry about home maintenance again
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-8">
+          Our AMC packages keep your Dubai home in perfect condition year-round
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#packages" class="btn-primary text-center px-8 py-4">
+            View AMC Packages
+          </a>
+          <a href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20AMC%20packages" class="btn-outline text-center px-8 py-4 flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.9 3.297"/>
+            </svg>
+            WhatsApp Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Package Comparison Section -->
+  <section id="packages" class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto container-padding">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-600 mb-4">
+          Choose Your Perfect AMC Package
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Interactive comparison of our three comprehensive AMC packages designed for different home types and needs
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        
+        <!-- Basic AMC -->
+        <div class="bg-white rounded-2xl p-8 card-shadow border border-gray-200 hover:border-primary-300 transition-all hover:transform hover:scale-105">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-text-600 mb-2">Basic AMC</h3>
+            <p class="text-gray-600 mb-6">Perfect for single professionals and small apartments</p>
+            <div class="text-4xl font-bold text-primary-600 mb-2">
+              AED 1,200
+              <span class="text-lg font-normal text-gray-500">/year</span>
+            </div>
+            <p class="text-sm text-gray-500 mb-2">AED 300/quarter</p>
+            <div class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium inline-block">
+              Best for: Single professionals, small apartments
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">4 scheduled AC maintenance visits</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Emergency plumbing response (2 visits/year)</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">General repairs coverage (basic fixtures)</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Phone support during business hours</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">48-hour response time</span>
+            </li>
+          </ul>
+
+          <div class="space-y-3">
+            <a href="/book?package=basic" class="w-full btn-outline text-center block py-3">
+              Choose Basic AMC
+            </a>
+            <a href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Basic%20AMC%20package" class="w-full text-center block py-2 text-sm text-gray-600 hover:text-primary-600 transition-colors">
+              WhatsApp for Details
+            </a>
+          </div>
+        </div>
+
+        <!-- Premium AMC (Featured) -->
+        <div class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 card-shadow border-2 border-primary-400 relative transform scale-105">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <span class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
+              Most Popular
+            </span>
+          </div>
+
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-text-600 mb-2">Premium AMC</h3>
+            <p class="text-gray-600 mb-6">Perfect for families and larger apartments</p>
+            <div class="text-4xl font-bold text-primary-600 mb-2">
+              AED 2,500
+              <span class="text-lg font-normal text-gray-500">/year</span>
+            </div>
+            <p class="text-sm text-gray-500 mb-2">AED 625/quarter</p>
+            <div class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium inline-block">
+              Best for: Families, larger apartments, busy professionals
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">6 AC maintenance visits + deep cleaning</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Unlimited emergency visits (plumbing, general repairs)</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Priority 24/7 support hotline</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Same-day emergency response</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Painting touch-ups (2/year)</span>
+            </li>
+          </ul>
+
+          <div class="space-y-3">
+            <a href="/book?package=premium" class="w-full btn-primary text-center block py-3">
+              Choose Premium AMC
+            </a>
+            <a href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Premium%20AMC%20package" class="w-full text-center block py-2 text-sm text-gray-600 hover:text-primary-600 transition-colors">
+              WhatsApp for Details
+            </a>
+          </div>
+        </div>
+
+        <!-- Family AMC -->
+        <div class="bg-white rounded-2xl p-8 card-shadow border border-gray-200 hover:border-primary-300 transition-all hover:transform hover:scale-105">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-text-600 mb-2">Family AMC</h3>
+            <p class="text-gray-600 mb-6">Specially designed for families with children</p>
+            <div class="text-4xl font-bold text-primary-600 mb-2">
+              AED 1,800
+              <span class="text-lg font-normal text-gray-500">/year</span>
+            </div>
+            <p class="text-sm text-gray-500 mb-2">AED 450/quarter</p>
+            <div class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-sm font-medium inline-block">
+              Best for: Families with children
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">5 AC maintenance visits</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Child-safe repairs and maintenance</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Weekend service availability</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Emergency support for safety issues</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700">Seasonal maintenance reminders</span>
+            </li>
+          </ul>
+
+          <div class="space-y-3">
+            <a href="/book?package=family" class="w-full btn-outline text-center block py-3">
+              Choose Family AMC
+            </a>
+            <a href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Family%20AMC%20package" class="w-full text-center block py-2 text-sm text-gray-600 hover:text-primary-600 transition-colors">
+              WhatsApp for Details
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AMC Benefits Section -->
+  <section class="bg-gray-50 section-padding">
+    <div class="max-w-7xl mx-auto container-padding">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-600 mb-4">
+          Why Choose Our AMC Packages?
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Peace of mind with professional maintenance and significant cost savings
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="bg-white rounded-xl p-8 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-text-600 mb-4">Cost Savings</h3>
+          <p class="text-gray-600 mb-4">Save up to 40% compared to individual service calls. No surprise repair costs with our transparent pricing.</p>
+          <div class="text-sm text-green-600 font-medium">Average savings: AED 1,500-3,000/year</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-text-600 mb-4">Peace of Mind</h3>
+          <p class="text-gray-600 mb-4">Regular maintenance prevents major breakdowns. Sleep soundly knowing your home systems are professionally maintained.</p>
+          <div class="text-sm text-blue-600 font-medium">Preventive care reduces emergencies by 70%</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-text-600 mb-4">Priority Service</h3>
+          <p class="text-gray-600 mb-4">Skip the queue with priority scheduling. Get emergency response when you need it most.</p>
+          <div class="text-sm text-primary-600 font-medium">AMC members get 50% faster response</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-text-600 mb-4">Exclusive Discounts</h3>
+          <p class="text-gray-600 mb-4">Get exclusive member discounts on additional work, upgrades, and premium services.</p>
+          <div class="text-sm text-purple-600 font-medium">Up to 35% off additional services</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-text-600 mb-4">Detailed Reports</h3>
+          <p class="text-gray-600 mb-4">Receive comprehensive maintenance reports and recommendations to keep your property in top condition.</p>
+          <div class="text-sm text-orange-600 font-medium">Digital reports after every visit</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 7C13.4 7 14.8 8.6 14.8 10V11.5C15.4 11.9 15.8 12.4 15.8 13V16C15.8 17.1 14.9 18 13.8 18H10.2C9.1 18 8.2 17.1 8.2 16V13C8.2 12.4 8.6 11.9 9.2 11.5V10C9.2 8.6 10.6 7 12 7M12 8.2C11.2 8.2 10.5 8.7 10.5 10V11.5H13.5V10C13.5 8.7 12.8 8.2 12 8.2Z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-text-600 mb-4">Warranty Protection</h3>
+          <p class="text-gray-600 mb-4">All maintenance work is covered by our guarantee. If something goes wrong, we fix it at no extra cost.</p>
+          <div class="text-sm text-teal-600 font-medium">6-month warranty on all work</div>
+        </div>
+
+      </div>
+
+      <!-- Cost Comparison Chart -->
+      <div class="mt-16 bg-white rounded-2xl p-8 card-shadow">
+        <h3 class="text-2xl font-bold text-text-600 mb-8 text-center">Cost Comparison: AMC vs Individual Services</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-gray-200">
+                <th class="text-left py-4 px-6 font-semibold text-text-600">Service</th>
+                <th class="text-center py-4 px-6 font-semibold text-text-600">Individual Cost</th>
+                <th class="text-center py-4 px-6 font-semibold text-text-600">With Basic AMC</th>
+                <th class="text-center py-4 px-6 font-semibold text-text-600">With Premium AMC</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="py-4 px-6">AC Maintenance (4 visits/year)</td>
+                <td class="py-4 px-6 text-center">AED 800</td>
+                <td class="py-4 px-6 text-center text-green-600 font-semibold">Included</td>
+                <td class="py-4 px-6 text-center text-green-600 font-semibold">Included + Deep Clean</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6">Emergency Plumbing (2 calls/year)</td>
+                <td class="py-4 px-6 text-center">AED 600</td>
+                <td class="py-4 px-6 text-center text-green-600 font-semibold">Included</td>
+                <td class="py-4 px-6 text-center text-green-600 font-semibold">Unlimited</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6">General Repairs (3 visits/year)</td>
+                <td class="py-4 px-6 text-center">AED 900</td>
+                <td class="py-4 px-6 text-center text-green-600 font-semibold">Included</td>
+                <td class="py-4 px-6 text-center text-green-600 font-semibold">Included</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6">Priority Support</td>
+                <td class="py-4 px-6 text-center">Not Available</td>
+                <td class="py-4 px-6 text-center text-green-600 font-semibold">Included</td>
+                <td class="py-4 px-6 text-center text-green-600 font-semibold">24/7 Available</td>
+              </tr>
+              <tr class="bg-gray-50 font-semibold">
+                <td class="py-4 px-6">Total Annual Cost</td>
+                <td class="py-4 px-6 text-center text-red-600">AED 2,300+</td>
+                <td class="py-4 px-6 text-center text-green-600">AED 1,200</td>
+                <td class="py-4 px-6 text-center text-green-600">AED 2,500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMC Customer Testimonials -->
+  <section class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto container-padding">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-600 mb-4">
+          What Our AMC Customers Say
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Real experiences from Dubai residents who trust us with their home maintenance
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl p-8 card-shadow">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <p class="text-gray-700 mb-6 italic">
+            "The Premium AMC has been a game-changer for our family. We haven't had a single AC breakdown in 2 years, and when we had a plumbing emergency at midnight, they were there within hours. Worth every dirham!"
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center mr-4">
+              <span class="text-primary-600 font-semibold">SA</span>
+            </div>
+            <div>
+              <div class="font-semibold text-text-600">Sarah Al-Mansouri</div>
+              <div class="text-sm text-gray-500">Dubai Marina Resident</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 card-shadow border border-gray-200">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <p class="text-gray-700 mb-6 italic">
+            "As a busy professional, the Basic AMC is perfect. I never have to worry about scheduling maintenance or dealing with unreliable contractors. ServDubai handles everything professionally and on time."
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-secondary-200 rounded-full flex items-center justify-center mr-4">
+              <span class="text-secondary-600 font-semibold">MJ</span>
+            </div>
+            <div>
+              <div class="font-semibold text-text-600">Michael Johnson</div>
+              <div class="text-sm text-gray-500">Business Bay Resident</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 card-shadow border border-gray-200">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <p class="text-gray-700 mb-6 italic">
+            "The Family AMC is amazing! They understand that we have small children and always ensure child-safe repairs. The weekend availability is a lifesaver for our busy family schedule."
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-accent-200 rounded-full flex items-center justify-center mr-4">
+              <span class="text-accent-600 font-semibold">AA</span>
+            </div>
+            <div>
+              <div class="font-semibold text-text-600">Amira Ahmed</div>
+              <div class="text-sm text-gray-500">Jumeirah Resident</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Add-On Services -->
+  <section class="bg-gray-50 section-padding">
+    <div class="max-w-7xl mx-auto container-padding">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-600 mb-4">
+          Add-On Services
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Enhance your AMC package with additional services tailored to your specific needs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="bg-white rounded-xl p-6 card-shadow">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">Deep Cleaning Service</h3>
+          <p class="text-gray-600 mb-4">Monthly deep cleaning including kitchen, bathrooms, and common areas.</p>
+          <div class="text-2xl font-bold text-primary-600">+AED 800/month</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 card-shadow">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">Pest Control</h3>
+          <p class="text-gray-600 mb-4">Quarterly pest control treatments to keep your property pest-free.</p>
+          <div class="text-2xl font-bold text-primary-600">+AED 400/quarter</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 card-shadow">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">Landscaping</h3>
+          <p class="text-gray-600 mb-4">Monthly landscaping and garden maintenance services.</p>
+          <div class="text-2xl font-bold text-primary-600">+AED 600/month</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 card-shadow">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">Pool Maintenance</h3>
+          <p class="text-gray-600 mb-4">Weekly pool cleaning, chemical balancing, and equipment checks.</p>
+          <div class="text-2xl font-bold text-primary-600">+AED 1,200/month</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 card-shadow">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">Security Monitoring</h3>
+          <p class="text-gray-600 mb-4">24/7 security system monitoring and response services.</p>
+          <div class="text-2xl font-bold text-primary-600">+AED 1,500/month</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 card-shadow">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">Concierge Services</h3>
+          <p class="text-gray-600 mb-4">Professional concierge services for your building residents.</p>
+          <div class="text-2xl font-bold text-primary-600">+AED 2,000/month</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-padding bg-white">
+    <div class="max-w-4xl mx-auto container-padding">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-600 mb-4">
+          Frequently Asked Questions
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">What's included in the AMC packages?</h3>
+          <p class="text-gray-600">Our AMC packages include scheduled maintenance visits, preventive care for building systems, priority service booking, emergency response, and discounts on additional services. The specific services vary by package tier.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">Can I upgrade my package during the contract?</h3>
+          <p class="text-gray-600">Yes, you can upgrade your AMC package at any time. We'll pro-rate the difference and adjust your service schedule accordingly.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">What areas of Dubai do you serve?</h3>
+          <p class="text-gray-600">We provide services across all major areas of Dubai including Dubai Marina, Downtown Dubai, Jumeirah, Business Bay, DIFC, and surrounding communities.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-text-600 mb-2">How quickly do you respond to emergency calls?</h3>
+          <p class="text-gray-600">Emergency response times vary by package: Basic AMC (same day), Premium AMC (4 hours guaranteed), and Enterprise AMC (24/7 immediate response).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-gradient-to-r from-primary-600 to-secondary-600 section-padding text-white">
+    <div class="max-w-7xl mx-auto container-padding text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Ready to Never Worry About Home Maintenance Again?
+      </h2>
+      <p class="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
+        Join hundreds of Dubai residents who trust ServDubai with their home maintenance. Choose your AMC package and enjoy peace of mind year-round.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <a href="/book" class="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
+          Sign Up for AMC Today
+        </a>
+        <a href="https://wa.me/971501234567?text=Hi%2C%20I%27d%20like%20a%20custom%20quote%20for%20AMC%20packages" class="border border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary-600 transition-colors flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.9 3.297"/>
+          </svg>
+          Custom Quote
+        </a>
+      </div>
+      <div class="flex items-center justify-center space-x-8 text-primary-200">
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span class="text-sm">No Setup Fees</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span class="text-sm">Flexible Payment Plans</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span class="text-sm">Cancel Anytime</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

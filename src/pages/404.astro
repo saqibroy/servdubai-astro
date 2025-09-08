@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/astro/Navigation.astro';
+import Footer from '../components/astro/Footer.astro';
+---
+
+<Layout title="Page Not Found - ServDubai" description="The page you're looking for could not be found. Explore our building services and maintenance solutions in Dubai.">
+  <Navigation />
+  
+  <!-- 404 Content -->
+  <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
+    <div class="max-w-4xl mx-auto container-padding text-center">
+      
+      <!-- 404 Visual -->
+      <div class="mb-12">
+        <div class="relative">
+          <div class="text-9xl md:text-[200px] font-bold text-primary-100 select-none">404</div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <svg class="w-24 h-24 md:w-32 md:h-32 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="mb-12">
+        <h1 class="text-3xl md:text-5xl font-bold text-text-600 mb-4">
+          Oops! Page Not Found
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
+          The page you're looking for seems to have moved or doesn't exist. But don't worry – we're here to help you find what you need!
+        </p>
+        <p class="text-lg text-gray-500">
+          Let us redirect you to our most popular services and information.
+        </p>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <!-- Emergency Service -->
+        <div class="bg-white rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 8h2a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2V7a6 6 0 1 1 12 0v1zM8 8h8V7a4 4 0 1 0-8 0v1zm2 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Emergency Service</h3>
+          <p class="text-gray-600 text-sm mb-4">Need immediate help? Our 24/7 emergency team is ready.</p>
+          <a href="tel:+971501234567" class="block bg-red-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-red-700 transition-colors">
+            Call Now: +971 50 123 4567
+          </a>
+        </div>
+
+        <!-- New Resident Services -->
+        <div class="bg-white rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-6H5.83L12 6.4l6.17 5.6H17v6z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">New Resident Packages</h3>
+          <p class="text-gray-600 text-sm mb-4">Special packages for new Dubai residents with discounts up to 30%.</p>
+          <a href="/book?package=new-resident" class="block bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+            View Packages
+          </a>
+        </div>
+
+        <!-- AMC Services -->
+        <div class="bg-white rounded-xl p-6 card-shadow hover:transform hover:scale-105 transition-all">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">AMC Packages</h3>
+          <p class="text-gray-600 text-sm mb-4">Annual maintenance contracts that save you money and worry.</p>
+          <a href="/packages" class="block bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
+            View AMC Plans
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Navigation Options -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Popular Pages</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/" class="bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors">
+            Home
+          </a>
+          <a href="/services" class="bg-white text-primary-600 border border-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors">
+            Services
+          </a>
+          <a href="/packages" class="bg-white text-primary-600 border border-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors">
+            AMC Packages
+          </a>
+          <a href="/contact" class="bg-white text-primary-600 border border-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors">
+            Contact Us
+          </a>
+          <a href="/about" class="bg-white text-primary-600 border border-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors">
+            About Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="max-w-md mx-auto mb-12">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Looking for something specific?</h3>
+        <div class="relative">
+          <input 
+            type="text" 
+            id="searchInput"
+            placeholder="Search our services..." 
+            class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+          />
+          <button 
+            onclick="performSearch()"
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary-600 text-white p-2 rounded-lg hover:bg-primary-700 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Contact Options -->
+      <div class="bg-white rounded-xl p-8 card-shadow">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Still Need Help?</h3>
+        <p class="text-gray-600 mb-6">Our customer service team is here to assist you with any questions or service needs.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="tel:+971501234567" class="flex items-center justify-center space-x-2 bg-primary-600 text-white py-3 px-4 rounded-lg hover:bg-primary-700 transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <span>Call Us</span>
+          </a>
+          
+          <a href="https://wa.me/971501234567?text=Hi%2C%20I%20was%20looking%20for%20information%20on%20your%20website" class="flex items-center justify-center space-x-2 bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.9 3.297"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          
+          <a href="/contact" class="flex items-center justify-center space-x-2 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span>Contact Form</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  function performSearch() {
+    const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+    const query = searchInput.value.trim().toLowerCase();
+    
+    if (!query) return;
+    
+    // Define search mappings
+    const searchMappings = {
+      'ac': '/services#ac-services',
+      'air conditioning': '/services#ac-services',
+      'cooling': '/services#ac-services',
+      'plumbing': '/services#plumbing-services',
+      'plumber': '/services#plumbing-services',
+      'water': '/services#plumbing-services',
+      'leak': '/services#plumbing-services',
+      'electrical': '/services#electrical-services',
+      'electricity': '/services#electrical-services',
+      'power': '/services#electrical-services',
+      'painting': '/services#painting-services',
+      'paint': '/services#painting-services',
+      'maintenance': '/services',
+      'amc': '/packages',
+      'annual maintenance': '/packages',
+      'contract': '/packages',
+      'emergency': '/contact',
+      'urgent': '/contact',
+      'new resident': '/book?package=new-resident',
+      'move in': '/book?package=new-resident',
+      'booking': '/book',
+      'book': '/book',
+      'contact': '/contact',
+      'about': '/about',
+      'team': '/about',
+      'price': '/packages',
+      'cost': '/packages',
+      'quote': '/contact'
+    };
+    
+    // Find matching page
+    let targetUrl = '/';
+    for (const [keyword, url] of Object.entries(searchMappings)) {
+      if (query.includes(keyword)) {
+        targetUrl = url;
+        break;
+      }
+    }
+    
+    // Redirect to target page
+    window.location.href = targetUrl;
+  }
+  
+  // Allow Enter key to trigger search
+  document.getElementById('searchInput')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+</script>
