@@ -104,7 +104,7 @@ const handler: Handler = async (event: HandlerEvent): Promise<HandlerResponse> =
         estimatedQuote,
         assignedSpecialist,
         priority: projectAssessment.priority,
-        message: `Construction project assessment received! Our ${assignedSpecialist.specialization} specialist will contact you within ${getResponseTime(projectAssessment.priority)} for site visit scheduling.`,
+        message: `Construction project assessment received! Our ${assignedSpecialist.specialization} specialist will contact you within ${getResponseTime(projectAssessment.priority)} for site visit and assessment.`,
         whatsappLink: customerWhatsAppLink,
         siteVisitInfo: {
           included: true,
@@ -286,8 +286,9 @@ function getResponseTime(priority: string): string {
   };
   
   return responseTimes[priority as keyof typeof responseTimes] || '2 hours';
-}async func
-tion sendConstructionTeamNotification(projectAssessment: any) {
+}
+
+async function sendConstructionTeamNotification(projectAssessment: any) {
   const transporter = nodemailer.createTransporter({
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: 587,
