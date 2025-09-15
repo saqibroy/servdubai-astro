@@ -11,7 +11,7 @@ export default defineConfig({
     }),
   ],
   output: 'static',
-  site: 'https://servdubai.com',
+  site: 'https://servdubai.netlify.app',
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
