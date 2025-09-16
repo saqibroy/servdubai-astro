@@ -235,11 +235,12 @@ import Footer from '../components/astro/Footer.astro';
   document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     
-    // Update booking details if provided
+    // Get parameters from URL
     const bookingId = urlParams.get('id') || 'SRV-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 9999) + 1).padStart(4, '0');
-    const serviceType = urlParams.get('service') || 'General Maintenance';
+    const serviceType = urlParams.get('service') || 'Construction Project';
+    const type = urlParams.get('type') || 'booking';
     const priority = urlParams.get('priority') || 'Normal';
-    const cost = urlParams.get('cost') || 'AED 150 - 250';
+    const quote = urlParams.get('quote') || 'TBD';
     
     // Update elements
     const bookingIdEl = document.getElementById('bookingId');
@@ -251,15 +252,53 @@ import Footer from '../components/astro/Footer.astro';
     if (bookingIdEl) bookingIdEl.textContent = bookingId;
     if (serviceTypeEl) serviceTypeEl.textContent = serviceType;
     if (priorityEl) priorityEl.textContent = priority;
-    if (costEl) costEl.textContent = cost;
+    if (costEl) costEl.textContent = quote;
     if (dateEl) dateEl.textContent = new Date().toLocaleDateString('en-AE');
+    
+    // Update page content based on request type
+    if (type === 'project-assessment') {
+      // Update title for construction projects
+      const titleEl = document.querySelector('h1');
+      if (titleEl) {
+        titleEl.textContent = 'Project Assessment Submitted! ✅';
+      }
+      
+      // Update description for construction projects
+      const descEl = document.querySelector('p.text-xl.text-gray-600');
+      if (descEl) {
+        descEl.textContent = 'Thank you for choosing ServDubai for your construction project. Your assessment has been received.';
+      }
+      
+      // Update steps for construction projects
+      const steps = document.querySelectorAll('.text-lg.font-semibold');
+      const stepDescs = document.querySelectorAll('.text-gray-600.text-sm');
+      
+      if (steps.length >= 3 && stepDescs.length >= 3) {
+        // Step 1
+        steps[0].textContent = 'Specialist Contact';
+        stepDescs[0].innerHTML = 'Our construction specialist will call you <strong>within 2 hours</strong> to discuss your project details.';
+        
+        // Step 2
+        steps[1].textContent = 'Site Visit';
+        stepDescs[1].textContent = 'We\'ll schedule a free on-site assessment to provide an accurate quote.';
+        
+        // Step 3
+        steps[2].textContent = 'Project Timeline';
+        stepDescs[2].textContent = 'Receive a detailed project plan with timeline and cost breakdown.';
+      }
+    }
     
     // Update WhatsApp links with booking ID
     const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
     whatsappLinks.forEach(link => {
-      const href = link.getAttribute('href');
+      let href = link.getAttribute('href') || '';
       if (href && !href.includes('booking')) {
-        link.setAttribute('href', href.replace('SRV-2024-0001', bookingId));
+        href = href.replace('SRV-2024-0001', bookingId);
+        href = href.replace('971501234567', '971552418446');
+        if (type === 'project-assessment') {
+          href = href.replace('modify my booking', 'discuss my construction project');
+        }
+        link.setAttribute('href', href);
       }
     });
   });

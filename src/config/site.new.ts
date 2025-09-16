@@ -209,7 +209,7 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   business: {
-    name: "ServDubai",
+    name: "ServDubai 1",
     tagline: "Dubai's Premier Construction Finishing Specialists",
     description: "Professional construction finishing services for newly constructed buildings in Dubai. We complete kitchen installations, bathroom finishing, flooring, woodwork, painting, and AC setup for developers and contractors.",
     phone: "+971552418446",

@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import ProjectAssessmentForm from '@/components/react/ProjectAssessmentForm'
+import ProjectAssessmentForm from '../../components/react/ProjectAssessmentForm'
 
 // Mock the validation schema
-vi.mock('@/schemas/projectAssessmentValidation', () => ({
+vi.mock('../../schemas/projectAssessmentValidation', () => ({
   projectAssessmentSchema: {
     parse: vi.fn(),
     safeParse: vi.fn(() => ({ success: true, data: {} }))

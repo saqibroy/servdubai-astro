@@ -1,5 +1,60 @@
 import type { Handler, HandlerEvent, HandlerResponse } from '@netlify/functions';
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
+
+interface ProjectLocation {
+  buildingName: string;
+  area: string;
+  areaDistrict?: string;
+  unitNumber?: string;
+}
+
+interface ContactInfo {
+  name: string;
+  phone: string;
+  email: string;
+  company?: string;
+}
+
+interface ProjectRequirements {
+  [key: string]: boolean;
+}
+
+interface Specialist {
+  name: string;
+  phone: string;
+  specialization: string;
+  experience: string;
+  expertise: string[];
+  email?: string;
+}
+
+interface ProjectAssessment {
+  projectId: string;
+  projectType: string;
+  projectLocation: ProjectLocation;
+  projectSize: string;
+  currentStatus: string;
+  timeline: string;
+  contactInfo: ContactInfo;
+  projectAddress: ProjectLocation;
+  preferredContactMethod: string;
+  bestContactTime: string;
+  kitchenRequirements?: ProjectRequirements;
+  bathroomRequirements?: ProjectRequirements;
+  flooringRequirements?: ProjectRequirements;
+  woodworkRequirements?: ProjectRequirements;
+  paintingRequirements?: ProjectRequirements;
+  acRequirements?: ProjectRequirements;
+  additionalDetails?: string;
+  estimatedQuote: ProjectQuote;
+  assignedSpecialist: Specialist;
+  priority: 'critical' | 'high' | 'normal';
+  serviceType: string;
+  createdAt: string;
+  status: string;
+  siteVisitScheduled: boolean;
+  quoteSent: boolean;
+}
 
 const handler: Handler = async (event: HandlerEvent): Promise<HandlerResponse> => {
   // Handle CORS preflight
@@ -26,7 +81,7 @@ const handler: Handler = async (event: HandlerEvent): Promise<HandlerResponse> =
   }
 
   try {
-    const projectData = JSON.parse(event.body || '{}');
+    const projectData = JSON.parse(event.body || '{}') as Partial<ProjectAssessment>;
     
     // Validate required fields for construction project assessment
     const requiredFields = [
@@ -35,7 +90,7 @@ const handler: Handler = async (event: HandlerEvent): Promise<HandlerResponse> =
       'bestContactTime'
     ];
     
-    const missingFields = requiredFields.filter(field => !projectData[field]);
+    const missingFields = requiredFields.filter(field => !projectData[field as keyof ProjectAssessment]);
     
     if (missingFields.length > 0) {
       return {
@@ -57,10 +112,19 @@ const handler: Handler = async (event: HandlerEvent): Promise<HandlerResponse> =
     const estimatedQuote = calculateProjectQuote(projectData);
     
     // Determine specialist assignment based on project type
-    const assignedSpecialist = getSpecialistAssignment(projectData.projectType);
+    const assignedSpecialist = getSpecialistAssignment(projectData.projectType || 'complete');
     
     // Create enhanced project assessment object
-    const projectAssessment = {
+    const projectAssessment: ProjectAssessment = {
+      projectType: projectData.projectType || '',
+      projectLocation: projectData.projectLocation || { buildingName: '', area: '' },
+      projectSize: projectData.projectSize || '',
+      currentStatus: projectData.currentStatus || '',
+      timeline: projectData.timeline || '',
+      contactInfo: projectData.contactInfo || { name: '', phone: '', email: '' },
+      projectAddress: projectData.projectAddress || { buildingName: '', area: '' },
+      preferredContactMethod: projectData.preferredContactMethod || '',
+      bestContactTime: projectData.bestContactTime || '',
       ...projectData,
       projectId,
       estimatedQuote,
@@ -154,7 +218,7 @@ interface ProjectQuote {
   };
 }
 
-function calculateProjectQuote(projectData: any): ProjectQuote {
+function calculateProjectQuote(projectData: Partial<ProjectAssessment>): ProjectQuote {
   const basePricing = {
     kitchen: { min: 2500, max: 8000 },
     bathroom: { min: 1800, max: 6000 },
@@ -260,7 +324,7 @@ function getSpecialistAssignment(projectType: string) {
   return specialists[projectType as keyof typeof specialists] || specialists.complete;
 }
 
-function determinePriority(projectData: any): 'critical' | 'high' | 'normal' {
+function determinePriority(projectData: Partial<ProjectAssessment>): 'critical' | 'high' | 'normal' {
   // Critical priority for urgent timelines or large projects
   if (projectData.timeline?.includes('urgent') || 
       projectData.timeline?.includes('immediate') ||
@@ -288,11 +352,12 @@ function getResponseTime(priority: string): string {
   return responseTimes[priority as keyof typeof responseTimes] || '2 hours';
 }
 
-async function sendConstructionTeamNotification(projectAssessment: any) {
-  const transporter = nodemailer.createTransporter({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: 587,
-    secure: false,
+import { companyConfig } from '../../src/config/company';
+
+async function sendConstructionTeamNotification(projectAssessment: ProjectAssessment) {
+
+  const transporter = nodemailer.createTransport({
+    ...companyConfig.emailConfig.defaultSMTP,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
@@ -305,7 +370,7 @@ async function sendConstructionTeamNotification(projectAssessment: any) {
     'normal': '📋'
   };
 
-  const projectTypeEmoji = {
+  const projectTypeEmoji: Record<string, string> = {
     'kitchen': '🍳',
     'bathroom': '🚿',
     'flooring': '🏗️',
@@ -317,7 +382,7 @@ async function sendConstructionTeamNotification(projectAssessment: any) {
 
   const emailContent = `
     ${priorityEmoji[projectAssessment.priority]} ${projectAssessment.priority.toUpperCase()} PRIORITY - CONSTRUCTION PROJECT ASSESSMENT
-    ${projectTypeEmoji[projectAssessment.projectType]} Project ID: ${projectAssessment.projectId}
+    ${projectTypeEmoji[projectAssessment.projectType] || '🏗️'} Project ID: ${projectAssessment.projectId}
     
     CLIENT INFORMATION:
     • Name: ${projectAssessment.contactInfo.name}
@@ -380,8 +445,8 @@ async function sendConstructionTeamNotification(projectAssessment: any) {
   });
 }
 
-async function sendProjectConfirmation(projectAssessment: any) {
-  const transporter = nodemailer.createTransporter({
+async function sendProjectConfirmation(projectAssessment: ProjectAssessment) {
+  const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: 587,
     secure: false,
@@ -487,7 +552,7 @@ async function sendProjectConfirmation(projectAssessment: any) {
   });
 }
 
-async function storeProjectAssessment(projectAssessment: any) {
+async function storeProjectAssessment(projectAssessment: ProjectAssessment) {
   console.log('Storing construction project assessment:', projectAssessment);
   
   // In production, this would connect to your database
@@ -519,7 +584,7 @@ async function storeProjectAssessment(projectAssessment: any) {
   */
 }
 
-function formatRequirements(projectAssessment: any): string {
+function formatRequirements(projectAssessment: ProjectAssessment): string {
   let requirements = '';
   
   if (projectAssessment.kitchenRequirements) {
@@ -585,7 +650,7 @@ function formatRequirements(projectAssessment: any): string {
   return requirements || 'No specific requirements specified';
 }
 
-function generateCustomerWhatsAppLink(projectAssessment: any): string {
+function generateCustomerWhatsAppLink(projectAssessment: ProjectAssessment): string {
   const message = `Hi ServDubai! 
 
 I submitted a construction project assessment:
@@ -607,7 +672,7 @@ ${projectAssessment.contactInfo.name}`;
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 }
 
-function generateTeamWhatsAppLink(projectAssessment: any): string {
+function generateTeamWhatsAppLink(projectAssessment: ProjectAssessment): string {
   const message = `🚨 NEW CONSTRUCTION PROJECT ASSESSMENT
 
 📋 Project ID: ${projectAssessment.projectId}

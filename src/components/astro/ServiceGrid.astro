@@ -1,8 +1,10 @@
 ---
-import { siteConfig, formatPrice, getProjectWhatsAppLink } from '../../config/site.ts';
+import { type ConstructionService, type SiteConfig, siteConfig, formatPrice, getProjectWhatsAppLink } from '../../config/site';
+import { companyConfig } from '../../config/company';
 
 // Get construction finishing services from site config
 const constructionServices = Object.values(siteConfig.services.constructionFinishing);
+const certificates = companyConfig.certifications;
 ---
 
 <!-- Service Grid Section -->
@@ -21,8 +23,7 @@ const constructionServices = Object.values(siteConfig.services.constructionFinis
         <span class="gradient-text">Finishing Specialists</span>
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        We complete what builders start - from kitchen installations to bathroom finishing, 
-        we're Dubai's trusted construction finishing specialists for new buildings.
+        {siteConfig.business.description}
       </p>
     </div>
 
